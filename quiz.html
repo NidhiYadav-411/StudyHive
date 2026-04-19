@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - StudyHive</title>
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+
+    <!-- Simplified Navbar -->
+    <div class="topnav">
+        <a class="brand-title" href="index.html" style="font-size: 1.5rem; margin: 0;">
+            <img src="assets/STUDYHIVE.webp" alt="Logo" style="width: 30px; height: 30px; border-radius: 5px;">
+            StudyHive
+        </a>
+        <div class="nav-links">
+            <a class="nav" href="index.html">Home</a>
+            <a class="nav" href="tutorials.html">Tutorials</a>
+            <a class="nav" href="notes.html">Notes</a>
+            <a class="nav" href="assignments.html">Assignments</a>
+            <a class="nav" href="about.html">About</a>
+            <a class="nav" href="query.html">Query</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="quiz-container">
+            <h1 id="quiz-title">Loading Quiz...</h1>
+
+            <div id="question-box" class="question-box">
+                <div id="question-text" class="question-text"></div>
+                <div id="options" class="options-container"></div>
+                <div class="actions">
+                    <button id="nextBtn" class="btn-primary" onclick="nextQuestion()">Next Question</button>
+                </div>
+            </div>
+
+            <div id="result" class="hidden result-box"></div>
+        </div>
+    </div>
+
+    <script src="quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# Secrets / Environment variables
+.env
+settings.json
+
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+
+# Database
+*.sqlite3
+*.db
+
+# OS generated files
+.DS_Store
+Thumbs.db

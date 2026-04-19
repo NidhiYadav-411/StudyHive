@@ -1,161 +1,102 @@
+@import url('global.css');
 
-/* General Styles */
+.about-section {
+  text-align: center;
+  padding: 40px 20px 20px;
+}
 
+.about-section p {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+}
 
+.team-heading {
+  text-align: center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.5rem;
+  margin: 40px 0 20px;
+  color: var(--text-main);
+}
 
+.team-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
 
-.Title {
-    font-family: Verdana, Geneva, Tahoma, sans-serif, Impact, Haettenschweiler;
-    text-align: center;
-    font-size: 100px;
-    color: #3ea67c;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px; /* Space between logo and text */
-  }
-  
-  .Title img {
-    width: 80px;  /* Adjust as needed */
-    height: 80px; /* Adjust as needed */
-  }
-  
-  /* Full-page background image */
-  
-  body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: url('assets/about1.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #333;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5); /* Dark overlay */
-      z-index: -1;
-    }
-    
-    
-    
-    /* About Section */
-    .about-section {
-      text-align: center;
-      padding: 60px;
-      background: linear-gradient(120deg, #2c3e50, #34495e);
-      color: white;
-    }
-    
-    .about-section h1 {
-      font-size: 3rem;
-      margin: 0;
-    }
-    
-    .about-section p {
-      font-size: 1.2rem;
-      margin-top: 10px;
-    }
-    
-    /* Navigation Bar */
-    .navbar {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 15px;
-      background-color: #2c3e50;
-    }
-    
-    .navbar a {
-      color: white;
-      text-decoration: none;
-      font-size: 1.2rem;
-      padding: 10px 15px;
-      border-radius: 8px;
-      transition: background 0.3s;
-    }
-    
-    .navbar a:hover, .navbar .active {
-      background-color: #1abc9c;
-    }
-    
-    /* Team Section */
-    .team-heading {
-      text-align: center;
-      font-size: 2rem;
-      margin: 40px 0;
-    }
-    
-    /* Team Cards */
-    .team-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
-    }
-    
-    .card {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-      width: 300px;
-      text-align: center;
-      padding: 20px;
-      transition: transform 0.3s;
-    }
-    
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    
-    .card img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      margin-bottom: 15px;
-    }
-    
-    .card h2 {
-      color: #2c3e50;
-    }
-    
-    .role {
-      font-weight: bold;
-      color: #1abc9c;
-    }
-    
-    .email {
-      color: #555;
-      font-size: 0.9rem;
-      margin-bottom: 15px;
-    }
-    
-    /* Contact Button */
-    .contact-btn {
-      background: #1abc9c;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 20px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    
-    .contact-btn:hover {
-      background: #16a085;
-    }
-    
-    
-    .profile-img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 10px;
-    }
+.card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 16px;
+  padding: 30px 20px;
+  width: 280px;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+  border-color: rgba(255,255,255,0.2);
+}
+
+.profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 20px;
+  border: 3px solid transparent;
+  background: var(--primary-gradient) padding-box,
+              var(--primary-gradient) border-box;
+}
+
+.card h2 {
+  font-family: 'Outfit', sans-serif;
+  color: var(--text-main);
+  margin-bottom: 5px;
+}
+
+.role {
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.card p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.email {
+  font-size: 0.8rem !important;
+  color: #fb7185 !important;
+}
+
+.contact-btn {
+  background: var(--primary-gradient);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.contact-btn:hover {
+  background: var(--primary-gradient-hover);
+  transform: scale(1.05);
+}

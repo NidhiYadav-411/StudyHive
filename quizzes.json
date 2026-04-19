@@ -1,0 +1,626 @@
+{
+  "2stroke": [
+    {
+      "question": "How many strokes does a complete cycle of a 4-stroke engine have?",
+      "options": [
+        "2 strokes",
+        "3 strokes",
+        "4 strokes",
+        "6 strokes"
+      ],
+      "answer": "4 strokes"
+    },
+    {
+      "question": "Which stroke is not part of the 2-stroke engine?",
+      "options": [
+        "Intake",
+        "Compression",
+        "Power",
+        "Exhaust"
+      ],
+      "answer": "Intake"
+    },
+    {
+      "question": "Which engine has better fuel efficiency?",
+      "options": [
+        "2-stroke engine",
+        "4-stroke engine",
+        "Both are same",
+        "Depends on vehicle"
+      ],
+      "answer": "4-stroke engine"
+    },
+    {
+      "question": "What is the main advantage of a 2-stroke engine?",
+      "options": [
+        "Lower emissions",
+        "More complex design",
+        "Higher power output for same size",
+        "Better fuel economy"
+      ],
+      "answer": "Higher power output for same size"
+    },
+    {
+      "question": "Which engine requires more maintenance?",
+      "options": [
+        "2-stroke engine",
+        "4-stroke engine",
+        "Both equally",
+        "None"
+      ],
+      "answer": "2-stroke engine"
+    }
+  ],
+  "bjt": [
+    {
+      "question": "What does BJT stand for?",
+      "options": [
+        "Basic Junction Transistor",
+        "Bipolar Junction Transistor",
+        "Bipolar Jet Transistor",
+        "Binary Junction Transistor"
+      ],
+      "answer": "Bipolar Junction Transistor"
+    },
+    {
+      "question": "In BJT, current is controlled by:",
+      "options": [
+        "Base",
+        "Collector",
+        "Emitter",
+        "Substrate"
+      ],
+      "answer": "Base"
+    },
+    {
+      "question": "FET is a type of:",
+      "options": [
+        "Current-controlled device",
+        "Voltage-controlled device",
+        "Power device",
+        "Digital device"
+      ],
+      "answer": "Voltage-controlled device"
+    },
+    {
+      "question": "Which terminal in FET controls the current flow?",
+      "options": [
+        "Source",
+        "Gate",
+        "Drain",
+        "Base"
+      ],
+      "answer": "Gate"
+    },
+    {
+      "question": "Which FET type has a physical channel present even without gate voltage?",
+      "options": [
+        "Depletion-type",
+        "Enhancement-type",
+        "NPN",
+        "PNP"
+      ],
+      "answer": "Depletion-type"
+    }
+  ],
+  "hydrolic": [
+    {
+      "question": "What principle does a hydraulic lift work on?",
+      "options": [
+        "Bernoulli's Principle",
+        "Pascal's Law",
+        "Archimedes' Principle",
+        "Boyle's Law"
+      ],
+      "answer": "Pascal's Law"
+    },
+    {
+      "question": "What is transferred through the hydraulic fluid?",
+      "options": [
+        "Energy",
+        "Light",
+        "Electricity",
+        "Sound"
+      ],
+      "answer": "Energy"
+    },
+    {
+      "question": "Hydraulic lifts are commonly used in:",
+      "options": [
+        "Cars and Elevators",
+        "Airplanes",
+        "Trains",
+        "Wind turbines"
+      ],
+      "answer": "Cars and Elevators"
+    },
+    {
+      "question": "Which fluid is generally used in hydraulic systems?",
+      "options": [
+        "Water",
+        "Oil",
+        "Air",
+        "Mercury"
+      ],
+      "answer": "Oil"
+    },
+    {
+      "question": "If small piston has less area, how can it lift a heavy load on large piston?",
+      "options": [
+        "Using gravity",
+        "Increasing air pressure",
+        "Force multiplication through fluid pressure",
+        "Electric motor"
+      ],
+      "answer": "Force multiplication through fluid pressure"
+    }
+  ],
+  "pump": [
+    {
+      "question": "What is the main function of a pump?",
+      "options": [
+        "To generate electricity",
+        "To move fluids",
+        "To compress air",
+        "To store water"
+      ],
+      "answer": "To move fluids"
+    },
+    {
+      "question": "Which type of pump is commonly used in households?",
+      "options": [
+        "Centrifugal pump",
+        "Jet pump",
+        "Gear pump",
+        "Axial pump"
+      ],
+      "answer": "Centrifugal pump"
+    },
+    {
+      "question": "Which part of a centrifugal pump increases the pressure of water?",
+      "options": [
+        "Impeller",
+        "Shaft",
+        "Nozzle",
+        "Seal"
+      ],
+      "answer": "Impeller"
+    },
+    {
+      "question": "What is the unit of pump power?",
+      "options": [
+        "Watt",
+        "Newton",
+        "Pascal",
+        "Joule"
+      ],
+      "answer": "Watt"
+    },
+    {
+      "question": "Which pump is best for high-viscosity fluids?",
+      "options": [
+        "Centrifugal pump",
+        "Reciprocating pump",
+        "Diaphragm pump",
+        "Gear pump"
+      ],
+      "answer": "Gear pump"
+    }
+  ],
+  "refridgerator": [
+    {
+      "question": "What is the main purpose of a refrigeration system?",
+      "options": [
+        "To increase temperature",
+        "To preserve food by cooling",
+        "To generate electricity",
+        "To heat water"
+      ],
+      "answer": "To preserve food by cooling"
+    },
+    {
+      "question": "Which component compresses the refrigerant gas?",
+      "options": [
+        "Evaporator",
+        "Compressor",
+        "Condenser",
+        "Expansion Valve"
+      ],
+      "answer": "Compressor"
+    },
+    {
+      "question": "What is the role of the condenser in refrigeration?",
+      "options": [
+        "Converts gas to liquid",
+        "Absorbs heat from food",
+        "Compresses refrigerant",
+        "Expands the refrigerant"
+      ],
+      "answer": "Converts gas to liquid"
+    },
+    {
+      "question": "Which component absorbs heat in a refrigerator?",
+      "options": [
+        "Condenser",
+        "Evaporator",
+        "Compressor",
+        "Coolant"
+      ],
+      "answer": "Evaporator"
+    },
+    {
+      "question": "Which refrigerant is commonly used in domestic refrigerators?",
+      "options": [
+        "R-134a",
+        "R-22",
+        "R-717",
+        "Ammonia"
+      ],
+      "answer": "R-134a"
+    }
+  ],
+  "turbine": [
+    {
+      "question": "What is the primary purpose of a turbine?",
+      "options": [
+        "To compress air",
+        "To generate mechanical energy",
+        "To store fluid",
+        "To measure temperature"
+      ],
+      "answer": "To generate mechanical energy"
+    },
+    {
+      "question": "Which of the following is a type of steam turbine?",
+      "options": [
+        "Pelton wheel",
+        "Francis turbine",
+        "Impulse turbine",
+        "Kaplan turbine"
+      ],
+      "answer": "Impulse turbine"
+    },
+    {
+      "question": "What kind of energy is converted by a turbine?",
+      "options": [
+        "Mechanical to Thermal",
+        "Electrical to Heat",
+        "Thermal to Mechanical",
+        "Kinetic to Electrical"
+      ],
+      "answer": "Thermal to Mechanical"
+    },
+    {
+      "question": "Which part of the turbine directs the flow onto the blades?",
+      "options": [
+        "Stator",
+        "Rotor",
+        "Nozzle",
+        "Casing"
+      ],
+      "answer": "Nozzle"
+    },
+    {
+      "question": "What is the function of blades in a turbine?",
+      "options": [
+        "Control fuel supply",
+        "Convert fluid energy into rotational motion",
+        "Start the ignition",
+        "Cool down the fluid"
+      ],
+      "answer": "Convert fluid energy into rotational motion"
+    }
+  ],
+  "zener": [
+    {
+      "question": "What is the primary function of a Zener diode?",
+      "options": [
+        "Rectification",
+        "Voltage regulation",
+        "Current amplification",
+        "Signal mixing"
+      ],
+      "answer": "Voltage regulation"
+    },
+    {
+      "question": "In which bias condition does a Zener diode regulate voltage?",
+      "options": [
+        "Forward bias",
+        "Reverse bias",
+        "No bias",
+        "Both forward and reverse"
+      ],
+      "answer": "Reverse bias"
+    },
+    {
+      "question": "What is Zener breakdown?",
+      "options": [
+        "A short circuit condition",
+        "An avalanche of electrons under reverse bias",
+        "Forward bias conduction",
+        "Melting of diode"
+      ],
+      "answer": "An avalanche of electrons under reverse bias"
+    },
+    {
+      "question": "Which of these is a typical application of Zener diode?",
+      "options": [
+        "Power amplification",
+        "AC to DC conversion",
+        "Voltage reference in circuits",
+        "Current limiting"
+      ],
+      "answer": "Voltage reference in circuits"
+    },
+    {
+      "question": "What happens when reverse voltage exceeds Zener voltage?",
+      "options": [
+        "Diode stops conducting",
+        "Diode conducts in reverse without damage",
+        "It explodes",
+        "It acts like a capacitor"
+      ],
+      "answer": "Diode conducts in reverse without damage"
+    }
+  ],
+  "auto_1": [
+    {
+      "question": "What is the name of the database created in the provided terminal session?",
+      "options": [
+        "student",
+        "dbms72",
+        "DBMS",
+        "practical_exam"
+      ],
+      "answer": "dbms72"
+    },
+    {
+      "question": "According to the output of the 'show databases;' command, how many databases are in the set?",
+      "options": [
+        "10",
+        "13",
+        "30",
+        "20"
+      ],
+      "answer": "30"
+    },
+    {
+      "question": "Which column in the 'student' table is defined as the Primary Key?",
+      "options": [
+        "name",
+        "rollno",
+        "branch",
+        "marks"
+      ],
+      "answer": "rollno"
+    },
+    {
+      "question": "In the insert statements, which city is associated with student 'Ankit' from the 'ELECTRICAL' branch?",
+      "options": [
+        "PUNE",
+        "AGRA",
+        "RAJASTHAN",
+        "DELHI"
+      ],
+      "answer": "DELHI"
+    },
+    {
+      "question": "What marks were assigned to the student named 'Anshika' in the first insert record?",
+      "options": [
+        "80",
+        "90",
+        "70",
+        "55"
+      ],
+      "answer": "80"
+    }
+  ],
+  "auto_3": [
+    {
+      "question": "Which umbrella activity focuses on uncovering and removing errors in work products before moving to the next activity?",
+      "options": [
+        "Software Project Tracking and Control",
+        "Formal Technical Reviews",
+        "Measurement",
+        "Reusability Management"
+      ],
+      "answer": "Formal Technical Reviews"
+    },
+    {
+      "question": "According to the definition provided, software engineering is a systematic, disciplined, and _____ approach to software development.",
+      "options": [
+        "Theoretical",
+        "Experimental",
+        "Quantifiable",
+        "Random"
+      ],
+      "answer": "Quantifiable"
+    },
+    {
+      "question": "In the layered technology model of software engineering, which layer serves as the foundation for all others?",
+      "options": [
+        "Process Layer",
+        "Methods Layer",
+        "Tools Layer",
+        "Quality Focus"
+      ],
+      "answer": "Quality Focus"
+    },
+    {
+      "question": "Which layer of software engineering provides the technical 'how-to' for building software, including activities like design and coding?",
+      "options": [
+        "Methods Layer",
+        "Process Layer",
+        "Quality Focus",
+        "Tools Layer"
+      ],
+      "answer": "Methods Layer"
+    },
+    {
+      "question": "Which umbrella activity involves defining and collecting process, project, and product metrics?",
+      "options": [
+        "Software Quality Assurance (SQA)",
+        "Risk Management",
+        "Measurement",
+        "Work Product Preparation and Production"
+      ],
+      "answer": "Measurement"
+    }
+  ],
+  "auto_2": [
+    {
+      "question": "Which mathematical formula is used in the missingNum method to calculate the expected sum of numbers from 1 to n?",
+      "options": [
+        "(n * (n - 1)) / 2",
+        "(n * (n + 1)) / 2",
+        "n * n",
+        "(n + 1) / 2"
+      ],
+      "answer": "(n * (n + 1)) / 2"
+    },
+    {
+      "question": "What value does the searchVal method return if the target key is not present in the array?",
+      "options": [
+        "0",
+        "null",
+        "1",
+        "-1"
+      ],
+      "answer": "-1"
+    },
+    {
+      "question": "In the main method, what is the 'Missing Number' output when the array is {1, 2, 4, 5} and n is 5?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "5"
+      ],
+      "answer": "3"
+    },
+    {
+      "question": "Which Java utility class is imported to handle array sorting in the provided code?",
+      "options": [
+        "java.util.ArrayList",
+        "java.util.Arrays",
+        "java.util.Collections",
+        "java.util.List"
+      ],
+      "answer": "java.util.Arrays"
+    },
+    {
+      "question": "What is the purpose of the sumPair method?",
+      "options": [
+        "To calculate the total sum of all elements in the array",
+        "To find and print pairs of elements that add up to a specific target value",
+        "To sort the array into pairs of numbers",
+        "To find the average of a pair of numbers"
+      ],
+      "answer": "To find and print pairs of elements that add up to a specific target value"
+    }
+  ],
+  "auto_4": [
+    {
+      "question": "What is the specific assignment number mentioned in the text?",
+      "options": [
+        "Assignment -1",
+        "Assignment -4",
+        "Assignment -8",
+        "Assignment -10"
+      ],
+      "answer": "Assignment -8"
+    },
+    {
+      "question": "What specific tool or device is mentioned under the first point of the assignment?",
+      "options": [
+        "urandom",
+        "random",
+        "entropy",
+        "dev-null"
+      ],
+      "answer": "urandom"
+    },
+    {
+      "question": "How many numbered sections are listed in the provided text outline?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answer": "4"
+    },
+    {
+      "question": "Which numbered item is associated with the text 'Using urandom'?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "1"
+    },
+    {
+      "question": "Based on the text, what is the main heading of the document?",
+      "options": [
+        "Syllabus",
+        "Assignment",
+        "Lab Report",
+        "Instructions"
+      ],
+      "answer": "Assignment"
+    }
+  ],
+  "auto_5": [
+    {
+      "question": "When comparing Method 1 (Iteration via for loop) and Method 2 (Recursion via if-else), which specific architectural phenomenon explains why Method 2 may fail during deep state-space exploration while Method 1 remains stable?",
+      "options": [
+        "The exhaustion of the stack segment due to the accumulation of activation records.",
+        "The fragmentation of the heap caused by repeated conditional branching.",
+        "The inability of the CPU's branch predictor to handle non-linear loop increments.",
+        "A violation of the atomicity of the 'if' condition during concurrent execution."
+      ],
+      "answer": "The exhaustion of the stack segment due to the accumulation of activation records."
+    },
+    {
+      "question": "In the context of Method 2 (Recursion using if...else), what is the theoretical necessity of the 'if' block regarding the well-ordering principle and algorithm termination?",
+      "options": [
+        "It serves to maximize the cyclomatic complexity to ensure exhaustive path coverage.",
+        "It acts as the predicate to identify the base case, ensuring the recursion is well-founded and prevents infinite descent.",
+        "It facilitates the dynamic allocation of local variables within the global namespace.",
+        "It transforms the algorithm from a deterministic state to a probabilistic state."
+      ],
+      "answer": "It acts as the predicate to identify the base case, ensuring the recursion is well-founded and prevents infinite descent."
+    },
+    {
+      "question": "According to the principles of computational equivalence, what is required to transform Method 1's 'for loop' into Method 2's 'recursion' without altering the time complexity O(n)?",
+      "options": [
+        "The implementation of a global semaphore to track loop indices.",
+        "The use of Tail Call Optimization (TCO) by the compiler to reuse the current stack frame.",
+        "A shift from a Von Neumann architecture to a Harvard architecture.",
+        "The conversion of all local variables into immutable constants within a closure."
+      ],
+      "answer": "The use of Tail Call Optimization (TCO) by the compiler to reuse the current stack frame."
+    },
+    {
+      "question": "Method 3 describes 'Without recursion using if-else'. If this method is used to implement a finite state machine (FSM), how does its state-transition capability fundamentally differ from Method 1?",
+      "options": [
+        "Method 3 is restricted to a single transition per invocation, whereas Method 1 permits 'n' transitions through the iteration space.",
+        "Method 3 requires a recursive descent parser, whereas Method 1 is purely declarative.",
+        "Method 3 inherently supports non-deterministic transitions, while Method 1 is strictly linear.",
+        "There is no difference; 'if-else' blocks and 'for' loops are functionally identical in all low-level intermediate representations."
+      ],
+      "answer": "Method 3 is restricted to a single transition per invocation, whereas Method 1 permits 'n' transitions through the iteration space."
+    },
+    {
+      "question": "Mathematically, what property is common to both the 'for loop' in Method 1 and the 'if-else recursion' in Method 2 when solving a problem like the Factorial function?",
+      "options": [
+        "Both rely on the Principle of Mathematical Induction to reach a terminal state.",
+        "Both methods require O(n^2) space complexity to store intermediate products.",
+        "Both methods bypass the need for a program counter during execution.",
+        "Method 1 uses structural induction, while Method 2 uses transfinite induction."
+      ],
+      "answer": "Both rely on the Principle of Mathematical Induction to reach a terminal state."
+    }
+  ]
+}

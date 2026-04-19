@@ -1,0 +1,83 @@
+@import url('global.css');
+
+.assignments-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+    gap: 10px;
+}
+
+#searchInput {
+    padding: 15px 25px;
+    width: 100%;
+    max-width: 500px;
+    font-size: 1rem;
+    border-radius: 40px;
+    border: 1px solid var(--glass-border);
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    color: var(--text-main);
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: var(--glass-shadow);
+}
+
+#searchInput::placeholder {
+    color: var(--text-muted);
+}
+
+#searchInput:focus {
+    border-color: #ff6b81;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(255, 107, 129, 0.3);
+}
+
+.assignments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.assignment-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 25px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 120px;
+}
+
+.assignment-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(60, 60, 80, 0.8));
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.assignment-title {
+    color: var(--text-main);
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 10px;
+}
+
+.assignment-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}

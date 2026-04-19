@@ -3,84 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOTES</title>
+    <title>Notes - StudyHive</title>
     <link rel="stylesheet" href="notes.css">
 </head>
 <body>
-  <script>
-    // Check for active session
-    if (!sessionStorage.getItem("activeSession")) {
-      alert("Please login to access notes");
-      window.location.href = "index.html";
-    }
-  </script>
-  <h1 class="Title">
-    <img src="assets/STUDYHIVE.webp" alt="StudyHive Logo">
-    StudyHive
-</h1>
-        
+
+  <!-- Navigation -->
   <div class="topnav">
-    <a class="nav" href="index.html">Home</a>
-    <a class="nav" href="tutorials.html">Tutorials</a>
-    <a class="active nav" href="notes.html">Notes</a>
-    <a class="nav" href="assignments.html">Assignments</a>
-    <a class="nav" href="about.html">About</a>
-    <a class="nav" href="query.html">Query</a>
-    <form class="form">
-      <label for="Search">
-        <input class="input" id="Search" type="text" required="" placeholder="Type something...">
-        <div class="fancy-bg"></div>
-        <div class="search"></div>
-        <div>
-          <!-- button to enter text in search box -->
-          <button class="btn" type="button" id="EARCH" onclick="search()">
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="svgIcon">
-              <g>
-                <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
-              </g>
-            </svg>
-          </button>
-        </div>
-      </label>
-    </form>
+    <a class="brand-title" href="index.html" style="font-size: 1.5rem; margin: 0;">
+      <img src="assets/STUDYHIVE.webp" alt="StudyHive Logo" style="width: 30px; height: 30px; border-radius: 5px;">
+      StudyHive
+    </a>
+    <div class="nav-links">
+      <a class="nav" href="index.html">Home</a>
+      <a class="nav" href="tutorials.html">Tutorials</a>
+      <a class="nav active" href="notes.html">Notes</a>
+      <a class="nav" href="assignments.html">Assignments</a>
+      <a class="nav" href="about.html">About</a>
+      <a class="nav" href="query.html">Query</a>
+    </div>
   </div>
-  <div class="dangerr">
-    <p><strong>MECHANICAL</strong></p>
+
+  <div class="notes-container">
+    <div style="text-align: center;">
+      <h1 class="brand-title">Study Notes</h1>
+      <p style="color: var(--text-muted); font-size: 1.2rem;">Access notes and test your knowledge directly.</p>
+    </div>
+
+
+
+    <div class="notes-grid" id="dynamicNotesContainer">
+        <!-- Loaded automatically via backend -->
+    </div>
   </div>
-  <div class="box" >
-    <a href="assets/Hydraulic lift.pdf" target="_blank"class="note-item">Hydraulic notes</a>
-    <a href="hydrolicliftquiz.html" class="quiz-btn small-btn">Hydraulic Quiz</a>
 
-    <br><br>
-    <a href="assets/Const. working 4 and 2 stroke SI engine.pdf" target="_blank"class="note-item">4 stroke 2stroke engine notes</a>
-    <a href="2stroke4strokequiz.html" class="quiz-btn small-btn">IC Engine Quiz</a>
-
-    <br><br>
-    <a href="assets/Pump Notes.pdf" target="_blank"class="note-item">Pump notes</a>
-    <a href="pumpquiz.html" class="quiz-btn small-btn">Pump Quiz</a>
-    <br><br>
-    <a href="assets/Turbine notes-1.pdf" target="_blank"class="note-item">Turbine notes</a>
-    <a href="turbinequiz.html" class="quiz-btn small-btn">Turbine Quiz</a>
-
-    <br><br>
-  <div class="danger">
-    <p><strong>ELECTRONICS</strong></p>
-  </div>
-  <div>
-    <a href="assets/BJT and FET.pdf" target="_blank"class="note-item">BJT notes</a>
-    <a href="bjtfetquiz.html" class="quiz-btn small-btn">BJT Quiz</a>
-
-    <br><br>
-    <a href="assets/Zener Diode.pdf" target="_blank"class="note-item">Zener Diode notes</a>
-    <a href="zenerquiz.html" class="quiz-btn small-btn">Zener Diode Quiz</a>
-
-  </div>
+  <script src="index.js"></script>
   <script src="notes.js"></script>
-
-
-          
-
-
-    
 </body>
 </html>

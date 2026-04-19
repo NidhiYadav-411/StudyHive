@@ -1,243 +1,83 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Question Bank</title>
-    <link rel="stylesheet" href="notes.css">
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: url('assets/8845713.jpg') no-repeat center center fixed;
-            background-size: cover;
-            margin: 0;
-            padding: 0;
-            color: white;
-        }
-    
-        .Title {
-            color: #ff6b81;
-            font-size: 2.8em;
-            margin-top: 30px;
-            text-align: center;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-    
-        /* Navigation Bar */
-        .topnav {
-            background: linear-gradient(90deg, #6a11cb, #2575fc);
-            padding: 12px 0;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-        }
-    
-        .nav {
-            color: white;
-            padding: 12px 20px;
-            text-decoration: none;
-            font-size: 18px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-    
-        .nav::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 0%;
-            height: 3px;
-            background: white;
-            transition: width 0.3s ease-in-out;
-        }
-    
-        .nav:hover::after {
-            width: 100%;
-        }
-    
-        .nav:hover {
-            background-color: rgba(255, 255, 255, 0.15);
-        }
-    
-        .active {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-    
-        /* Search Box */
-        #searchInput {
-            padding: 12px;
-            width: 50%;
-            font-size: 16px;
-            border-radius: 8px;
-            border: 2px solid #fff;
-            outline: none;
-            transition: 0.3s;
-            background-color: rgba(255, 255, 255, 0.9);
-            color: #333;
-        }
-    
-        #searchInput:focus {
-            border-color: #ff6b81;
-            box-shadow: 0 0 10px rgba(255, 107, 129, 0.4);
-        }
-    
-        /* Content Box */
-        .box {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 25px;
-            margin: 30px auto;
-            width: 70%;
-            border-radius: 15px;
-            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-    
-        .box:hover {
-            transform: translateY(-5px);
-        }
-    
-        .box a {
-            display: block;
-            font-size: 18px;
-            color: #2575fc;
-            text-decoration: none;
-            margin: 12px 0;
-            padding: 14px;
-            border-radius: 10px;
-            background: linear-gradient(120deg, #f6d365, #fda085);
-            transition: all 0.3s ease;
-            font-weight: bold;
-        }
-    
-        .box a:hover {
-            background: linear-gradient(120deg, #84fab0, #8fd3f4);
-            color: #333;
-            transform: scale(1.03);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-        }
-        .search-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    position: relative;
-}
-
-.search-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    gap: 10px;
-}
-
-#searchInput {
-    padding: 12px 16px;
-    width: 50%;
-    font-size: 16px;
-    border-radius: 8px;
-    border: 2px solid #fff;
-    background-color: rgba(255, 255, 255, 0.9);
-    color: #333;
-    outline: none;
-    transition: 0.3s;
-}
-
-#searchInput:focus {
-    border-color: #ff6b81;
-    box-shadow: 0 0 10px rgba(255, 107, 129, 0.4);
-}
-
-.search-button {
-    padding: 12px 16px;
-    font-size: 18px;
-    border: none;
-    border-radius: 50%;
-    background: linear-gradient(120deg, #8ac1ee, #2575fc);
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.search-button:hover {
-    background: linear-gradient(120deg, #84fab0, #8fd3f4);
-    color: #333;
-}
-
-    </style>
-    
+    <title>Question Bank - StudyHive</title>
+    <link rel="stylesheet" href="assignments.css">
 </head>
 <body>
-  <script>
-    // Check for active session
-    if (!sessionStorage.getItem("activeSession")) {
-      alert("Please login to access assignments");
-      window.location.href = "index.html";
-    }
-  </script>
 
     <!-- Navigation Bar -->
     <div class="topnav">
-        <a class="nav" href="index.html">Home</a>
-        <a class="nav" href="tutorials.html">Tutorials</a>
-        <a class="nav" href="notes.html">Notes</a>
-        <a class="active nav" href="assignments.html">Assignments</a>
-        <a class="nav" href="about.html">About</a>
-        <a class="nav" href="query.html">Query</a>
+        <a class="brand-title" href="index.html" style="font-size: 1.5rem; margin: 0;">
+            <img src="assets/STUDYHIVE.webp" alt="StudyHive Logo" style="width: 30px; height: 30px; border-radius: 5px;">
+            StudyHive
+        </a>
+        <div class="nav-links">
+            <a class="nav" href="index.html">Home</a>
+            <a class="nav" href="tutorials.html">Tutorials</a>
+            <a class="nav" href="notes.html">Notes</a>
+            <a class="nav active" href="assignments.html">Assignments</a>
+            <a class="nav" href="about.html">About</a>
+            <a class="nav" href="query.html">Query</a>
+        </div>
     </div>
 
-    <!-- Add this inside <body>, just above the .box div -->
+    <div class="assignments-container">
+        <div style="text-align: center;">
+            <h1 class="brand-title">Assignments & Question Banks</h1>
+            <p style="color: var(--text-muted); font-size: 1.2rem;">Find practical materials for your exam preparations.</p>
+        </div>
 
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Search assignments...">
-            <button id="searchBtn" class="search-button">🔍</button>
         </div>
+
+        <div class="assignments-grid" id="assignmentList">
+            <a href="assignments/B.Tech.First year 23-24 (Assignment - I) (4).pdf" target="_blank" class="assignment-card block" data-title="Math 2 : Unit 1">
+                <div class="assignment-icon">📄</div>
+                <div class="assignment-title">Math 2 : Unit 1</div>
+            </a>
+            <a href="assignments/B.Tech.First year 23-24 (Assignment - III) (1).pdf" target="_blank" class="assignment-card block" data-title="Math 2 : Unit 3">
+                <div class="assignment-icon">📄</div>
+                <div class="assignment-title">Math 2 : Unit 3</div>
+            </a>
+            <a href="assignments/EE All Unit 2 mrks que. PUT & semester.pdf" target="_blank" class="assignment-card block" data-title="Electrical 2 Marks Questions">
+                <div class="assignment-icon">⚡</div>
+                <div class="assignment-title">Electrical 2 Marks Questions</div>
+            </a>
+            <a href="assignments/PPS IMPORTANT QUESTIONS 2024 even sem.docx" target="_blank" class="assignment-card block" data-title="PPS Question Bank 1">
+                <div class="assignment-icon">💻</div>
+                <div class="assignment-title">PPS Question Bank 1</div>
+            </a>
+            <a href="assignments/PPS IMPORTANT QUESTIONS and solution pinki.docx" target="_blank" class="assignment-card block" data-title="PPS Question Bank 2">
+                <div class="assignment-icon">💻</div>
+                <div class="assignment-title">PPS Question Bank 2</div>
+            </a>
+            <a href="assignments/PPS IMPORTANT QUESTIONS G2.docx" target="_blank" class="assignment-card block" data-title="PPS Question Bank 3">
+                <div class="assignment-icon">💻</div>
+                <div class="assignment-title">PPS Question Bank 3</div>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
         
-          
-        
-        
-
-<!-- Updated box with ID -->
-<div class="box" id="assignmentList">
-    <a href="assignments/B.Tech.First year 23-24 (Assignment - I) (4).pdf" target="_blank">Math 2 : Unit 1</a>
-    <a href="assignments/B.Tech.First year 23-24 (Assignment - III) (1).pdf" target="_blank">Math 2 : Unit 3</a>
-    <a href="assignments/EE All Unit 2 mrks que. PUT & semester.pdf" target="_blank">Electrical 2 Marks Questions</a>
-    <a href="assignments/PPS IMPORTANT QUESTIONS 2024 even sem.docx" target="_blank">PPS Question Bank 1</a>
-    <a href="assignments/PPS IMPORTANT QUESTIONS and solution pinki.docx" target="_blank">PPS Question Bank 2</a>
-    <a href="assignments/PPS IMPORTANT QUESTIONS G2.docx" target="_blank">PPS Question Bank 3</a>
-</div>
-
-
-<!-- Add this script just before </body> -->
-<script>
-    const searchInput = document.getElementById('searchInput');
-    const assignmentList = document.getElementById('assignmentList');
-
-    searchInput.addEventListener('input', function () {
-        const filter = searchInput.value.toLowerCase();
-
-        // Get all assignment links as array
-        const links = Array.from(assignmentList.getElementsByTagName('a'));
-
-        // Filter by text match
-        const filteredLinks = links.filter(link =>
-            link.textContent.toLowerCase().includes(filter)
-        );
-
-        // Sort alphabetically
-        filteredLinks.sort((a, b) =>
-            a.textContent.localeCompare(b.textContent)
-        );
-
-        // Clear current list and re-append sorted/filtered links
-        assignmentList.innerHTML = '';
-        filteredLinks.forEach(link => assignmentList.appendChild(link));
-    });
-</script>
-
+        searchInput.addEventListener('input', function () {
+            const filter = searchInput.value.toLowerCase();
+            const blocks = document.querySelectorAll('.block');
+            
+            blocks.forEach(block => {
+                const title = block.getAttribute('data-title').toLowerCase();
+                if (title.includes(filter)) {
+                    block.style.display = 'flex';
+                } else {
+                    block.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
+</html>

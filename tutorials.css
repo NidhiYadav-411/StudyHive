@@ -1,226 +1,72 @@
-.Title {
-    font-family: Verdana, Geneva, Tahoma, sans-serif, Impact, Haettenschweiler;
-    text-align: center;
-    font-size: 100px;
-    color: #3ea67c;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px; /* Space between logo and text */
+@import url('global.css');
+
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
 }
 
-.Title img {
-    width: 80px;  /* Adjust as needed */
-    height: 80px; /* Adjust as needed */
+.video-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: var(--glass-shadow);
 }
 
-
-
-
-
-
-/* Background Styling */
-body {
-    background: url('assets/tutorial1.jpg') no-repeat center center fixed;
-    background-size: cover;
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
+.video-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    border-color: rgba(255,255,255,0.2);
 }
 
-/* Title Styling */
-.Title {
-    text-align: center;
-    font-size: 80px;
-    font-weight: bold;
-    color: white;
-    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
-    margin-top: 20px;
-}
-
-/* Navigation Bar */
-/* Top Navigation Bar */
-.topnav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    background: linear-gradient(135deg, rgba(255, 94, 98, 0.8), rgba(255, 165, 0, 0.8));
+.video-title {
     padding: 15px 20px;
-    border-radius: 50px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-    position: sticky;
-    top: 10px;
-    z-index: 1000;
-    transition: all 0.3s ease-in-out;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    background: rgba(0,0,0,0.2);
+    border-bottom: 1px solid var(--glass-border);
 }
 
-/* Blur effect on scroll */
-.topnav:hover {
-    backdrop-filter: blur(10px);
-}
-
-/* Navigation Links */
-.topnav a {
-    color: white;
-    padding: 12px 20px;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 15px;
-    transition: all 0.3s ease-in-out;
-    background: rgba(255, 255, 255, 0.2);
+.video-wrapper {
     position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
     overflow: hidden;
 }
 
-/* Hover effect with scaling */
-.topnav a:hover {
-    background: rgba(255, 255, 255, 0.4);
-    transform: scale(1.1);
-    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.5);
-}
-
-/* Active link with glow */
-.topnav a.active {
-    background: #ff4757;
-    color: white;
-    box-shadow: 0px 0px 15px rgba(255, 71, 87, 0.8);
-    transform: scale(1.1);
-}
-
-/* Button Press Effect */
-.topnav a:active {
-    transform: scale(0.9);
-}
-
-/* Responsive Navigation */
-@media (max-width: 768px) {
-    .topnav {
-        flex-direction: column;
-        border-radius: 20px;
-    }
-
-    .topnav a {
-        width: 100%;
-        text-align: center;
-    }
-}
-
-/* Search Bar */
-.form {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.input {
-    width: 300px;
-    padding: 10px;
-    border-radius: 25px;
-    border: 2px solid #fff;
-    background: rgba(255, 255, 255, 0.3);
-    color: white;
-    font-size: 16px;
-}
-
-.input::placeholder {
-    color: white;
-}
-
-.btn {
-    background: #ff3161;
-    border: none;
-    padding: 12px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.btn:hover {
-    background: white;
-    color: #ff3161;
-    transform: scale(1.1);
-}
-
-/* Video Container */
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-}
-
-/* Video Blocks */
-.block {
-    background: linear-gradient(135deg, rgba(255, 165, 0, 0.8), rgba(255, 69, 0, 0.8));
-    border-radius: 15px;
-    overflow: hidden;
-    width: 320px;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    padding-bottom: 15px;
-}
-
-.block:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
-}
-
-/* Video Titles */
-.title {
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.5);
-    border-bottom: 2px solid white;
-}
-
-/* Video Frame */
-.video {
-    width: 100%;
-    height: 180px;
-    border-radius: 0px 0px 10px 10px;
-    overflow: hidden;
-}
-
-iframe {
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     border: none;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .topnav {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .topnav a {
-        width: 90%;
-        text-align: center;
-    }
-    
-    .form {
-        flex-direction: column;
-        align-items: center;
-    }
+/* Search Box in Navigation */
+.search-form {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    padding: 2px 15px;
+}
 
-    .input {
-        width: 80%;
-        margin-bottom: 10px;
-    }
+.search-input {
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    padding: 8px;
+    width: 200px;
+    outline: none;
+}
 
-    .btn {
-        width: 80%;
-    }
-
-    .container {
-        flex-direction: column;
-        align-items: center;
-    }
+.search-input::placeholder {
+    color: var(--text-muted);
 }
