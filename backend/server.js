@@ -21,10 +21,11 @@ const dbPassword = process.env.MYSQL_PASSWORD || '@Nidhi21346';
 const dbName = process.env.MYSQL_DB || 'studyhive';
 
 // Set up upload folder
-const UPLOAD_FOLDER = path.join(__dirname, '..', 'assets', 'uploads');
+const UPLOAD_FOLDER = path.join(__dirname, 'uploads');
 if (!fs.existsSync(UPLOAD_FOLDER)) {
     fs.mkdirSync(UPLOAD_FOLDER, { recursive: true });
 }
+app.use('/assets/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Multer storage engine
 const storage = multer.diskStorage({
@@ -318,6 +319,20 @@ app.get('/api/analytics/:user_id', async (req, res) => {
     }
 });
 
+app.get('/api/quizzes', (req, res) => {
+    const quizzesFile = path.join(__dirname, 'quizzes.json');
+    if (fs.existsSync(quizzesFile)) {
+        try {
+            const data = fs.readFileSync(quizzesFile, 'utf8');
+            return res.json(JSON.parse(data));
+        } catch (err) {
+            console.error('Error reading quizzes.json:', err);
+            return res.status(500).json({ error: 'Failed to read quizzes' });
+        }
+    }
+    return res.json({});
+});
+
 // Resilient AI generation with fallback models
 async function generateQuizWithGemini(prompt) {
     const modelsToTry = [
@@ -486,7 +501,7 @@ ${truncatedText}`;
         }
 
         // Save to quizzes.json
-        const quizzesFile = path.join(__dirname, '..', 'quizzes.json');
+        const quizzesFile = path.join(__dirname, 'quizzes.json');
         let quizzesData = {};
         if (fs.existsSync(quizzesFile)) {
             try {

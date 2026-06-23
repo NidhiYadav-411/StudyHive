@@ -31,7 +31,7 @@ function shuffleQuizzes(array) {
 
 async function initQuiz() {
     try {
-        const res = await fetch('quizzes.json?t=' + new Date().getTime());
+        const res = await fetch(`${API_BASE}/quizzes`);
         const data = await res.json();
 
         if (data[quizId]) {

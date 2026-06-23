@@ -301,7 +301,7 @@
                         <td>${note.topic}</td>
                         <td>UID: ${note.uploaded_by}</td>
                         <td>${note.original_name}</td>
-                        <td><a href="${safePath}" target="_blank" style="color:var(--accent);">View Note</a></td>
+                        <td><a href="${API_BASE.replace('/api', '')}/${safePath}" target="_blank" style="color:var(--accent);">View Note</a></td>
                         <td class="action-cell">
                             <button class="btn-primary" style="padding: 5px 10px; background: #2ecc71;" onclick="moderateNote(${note.id}, 'approve')">Approve (Gen Quiz)</button>
                             <button class="btn-secondary" style="padding: 5px 10px; background: #e74c3c; border-color: #e74c3c;" onclick="moderateNote(${note.id}, 'reject')">Deny</button>

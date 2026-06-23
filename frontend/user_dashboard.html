@@ -347,7 +347,7 @@
                     <p style="color: var(--text-muted); font-size: 0.8rem; margin: 10px 0;">Source File: ${note.original_name}</p>
                     
                     <div style="display:flex; gap:10px; margin-top:15px;">
-                        <a href="${safePath}" target="_blank" class="btn-primary" style="padding: 5px 15px; font-size: 0.9rem; text-decoration:none;">Study Note</a>
+                        <a href="${API_BASE.replace('/api', '')}/${safePath}" target="_blank" class="btn-primary" style="padding: 5px 15px; font-size: 0.9rem; text-decoration:none;">Study Note</a>
                         <a href="quiz.html?id=${quiz_id}" class="btn-secondary" style="padding: 5px 15px; font-size: 0.9rem; text-decoration:none;">Take Quiz</a>
                     </div>
                 `;

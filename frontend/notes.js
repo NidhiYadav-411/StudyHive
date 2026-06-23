@@ -40,13 +40,14 @@ async function fetchAdminNotes() {
                 notes.forEach(note => {
                     const quiz_id = "auto_" + note.id;
                     const safePath = note.filepath.replace(/\\/g, '/');
+                    const fileUrl = `${API_BASE.replace('/api', '')}/${safePath}`;
                     
                     const card = document.createElement('div');
                     card.className = 'note-card';
                     card.innerHTML = `
                         <div class="note-title">${note.topic} <span style="font-size:0.8rem; color:var(--text-muted); display:block; font-weight:normal;">(${note.original_name})</span></div>
                         <div class="note-actions">
-                            <a href="${safePath}" target="_blank" class="btn-view">Read Note</a>
+                            <a href="${fileUrl}" target="_blank" class="btn-view">Read Note</a>
                             <a href="quiz.html?id=${quiz_id}" class="btn-quiz">Take AI Quiz</a>
                         </div>
                     `;
