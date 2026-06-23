@@ -1,6 +1,6 @@
 const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
     ? 'http://localhost:5000/api'
-    : 'https://your-render-app.onrender.com/api'; // Replace with your Render URL
+    : 'https://studyhive-backend-1soc.onrender.com/api'; // Replace with your Render URL
 
 window.addEventListener('DOMContentLoaded', () => {
     fetchAdminNotes();
