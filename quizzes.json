@@ -573,54 +573,306 @@
   ],
   "auto_5": [
     {
-      "question": "When comparing Method 1 (Iteration via for loop) and Method 2 (Recursion via if-else), which specific architectural phenomenon explains why Method 2 may fail during deep state-space exploration while Method 1 remains stable?",
+      "question": "[Set 1] Which of the following best describes the core concept of \"factorial\" in the context of \"Operating Systems\"?",
       "options": [
-        "The exhaustion of the stack segment due to the accumulation of activation records.",
-        "The fragmentation of the heap caused by repeated conditional branching.",
-        "The inability of the CPU's branch predictor to handle non-linear loop increments.",
-        "A violation of the atomicity of the 'if' condition during concurrent execution."
+        "A methodology for synchronous data replication",
+        "An abstraction layer for resource management and coordination",
+        "A foundational protocol for system interaction",
+        "A localized resource optimization pattern"
       ],
-      "answer": "The exhaustion of the stack segment due to the accumulation of activation records."
+      "answer": "An abstraction layer for resource management and coordination"
     },
     {
-      "question": "In the context of Method 2 (Recursion using if...else), what is the theoretical necessity of the 'if' block regarding the well-ordering principle and algorithm termination?",
+      "question": "[Set 1] When analyzing key properties in \"Operating Systems\", what is the primary bottleneck typically encountered?",
       "options": [
-        "It serves to maximize the cyclomatic complexity to ensure exhaustive path coverage.",
-        "It acts as the predicate to identify the base case, ensuring the recursion is well-founded and prevents infinite descent.",
-        "It facilitates the dynamic allocation of local variables within the global namespace.",
-        "It transforms the algorithm from a deterministic state to a probabilistic state."
+        "Thread synchronization deadlock potential",
+        "CPU register allocation limits",
+        "I/O operations and memory mapping overhead",
+        "Network latency during socket initialization"
       ],
-      "answer": "It acts as the predicate to identify the base case, ensuring the recursion is well-founded and prevents infinite descent."
+      "answer": "I/O operations and memory mapping overhead"
     },
     {
-      "question": "According to the principles of computational equivalence, what is required to transform Method 1's 'for loop' into Method 2's 'recursion' without altering the time complexity O(n)?",
+      "question": "[Set 1] What is the main advantage of using structured modular design rather than a monolithic approach when working with \"factorial\"?",
       "options": [
-        "The implementation of a global semaphore to track loop indices.",
-        "The use of Tail Call Optimization (TCO) by the compiler to reuse the current stack frame.",
-        "A shift from a Von Neumann architecture to a Harvard architecture.",
-        "The conversion of all local variables into immutable constants within a closure."
+        "Inherent security against buffer overflows",
+        "Automatic garbage collection efficiency",
+        "Improved maintenance, easier debugging, and decoupled testing",
+        "Reduced instruction set execution time"
       ],
-      "answer": "The use of Tail Call Optimization (TCO) by the compiler to reuse the current stack frame."
+      "answer": "Improved maintenance, easier debugging, and decoupled testing"
     },
     {
-      "question": "Method 3 describes 'Without recursion using if-else'. If this method is used to implement a finite state machine (FSM), how does its state-transition capability fundamentally differ from Method 1?",
+      "question": "[Set 1] Which algorithmic complexity class is generally targetted for optimization in processes related to \"factorial\"?",
       "options": [
-        "Method 3 is restricted to a single transition per invocation, whereas Method 1 permits 'n' transitions through the iteration space.",
-        "Method 3 requires a recursive descent parser, whereas Method 1 is purely declarative.",
-        "Method 3 inherently supports non-deterministic transitions, while Method 1 is strictly linear.",
-        "There is no difference; 'if-else' blocks and 'for' loops are functionally identical in all low-level intermediate representations."
+        "O(n log n) linearithmic time",
+        "O(n) linear time",
+        "O(log n) logarithmic time",
+        "O(1) constant time"
       ],
-      "answer": "Method 3 is restricted to a single transition per invocation, whereas Method 1 permits 'n' transitions through the iteration space."
+      "answer": "O(log n) logarithmic time"
     },
     {
-      "question": "Mathematically, what property is common to both the 'for loop' in Method 1 and the 'if-else recursion' in Method 2 when solving a problem like the Factorial function?",
+      "question": "[Set 1] How does scaling vertically differ from scaling horizontally when deploying systems of this type?",
       "options": [
-        "Both rely on the Principle of Mathematical Induction to reach a terminal state.",
-        "Both methods require O(n^2) space complexity to store intermediate products.",
-        "Both methods bypass the need for a program counter during execution.",
-        "Method 1 uses structural induction, while Method 2 uses transfinite induction."
+        "There is no difference in resource distribution",
+        "Vertical scaling is always stateless, horizontal scaling is stateful",
+        "Vertical scaling increases the capacity of a single node, horizontal scaling adds more nodes",
+        "Vertical scaling adds more nodes, horizontal scaling increases capacity of a single node"
       ],
-      "answer": "Both rely on the Principle of Mathematical Induction to reach a terminal state."
+      "answer": "Vertical scaling increases the capacity of a single node, horizontal scaling adds more nodes"
+    },
+    {
+      "question": "[Set 2] Which of the following best describes the core concept of \"factorial\" in the context of \"Operating Systems\"?",
+      "options": [
+        "A methodology for synchronous data replication",
+        "An abstraction layer for resource management and coordination",
+        "A foundational protocol for system interaction",
+        "A localized resource optimization pattern"
+      ],
+      "answer": "An abstraction layer for resource management and coordination"
+    },
+    {
+      "question": "[Set 2] When analyzing key properties in \"Operating Systems\", what is the primary bottleneck typically encountered?",
+      "options": [
+        "Thread synchronization deadlock potential",
+        "CPU register allocation limits",
+        "I/O operations and memory mapping overhead",
+        "Network latency during socket initialization"
+      ],
+      "answer": "I/O operations and memory mapping overhead"
+    },
+    {
+      "question": "[Set 2] What is the main advantage of using structured modular design rather than a monolithic approach when working with \"factorial\"?",
+      "options": [
+        "Inherent security against buffer overflows",
+        "Automatic garbage collection efficiency",
+        "Improved maintenance, easier debugging, and decoupled testing",
+        "Reduced instruction set execution time"
+      ],
+      "answer": "Improved maintenance, easier debugging, and decoupled testing"
+    },
+    {
+      "question": "[Set 2] Which algorithmic complexity class is generally targetted for optimization in processes related to \"factorial\"?",
+      "options": [
+        "O(n log n) linearithmic time",
+        "O(n) linear time",
+        "O(log n) logarithmic time",
+        "O(1) constant time"
+      ],
+      "answer": "O(log n) logarithmic time"
+    },
+    {
+      "question": "[Set 2] How does scaling vertically differ from scaling horizontally when deploying systems of this type?",
+      "options": [
+        "There is no difference in resource distribution",
+        "Vertical scaling is always stateless, horizontal scaling is stateful",
+        "Vertical scaling increases the capacity of a single node, horizontal scaling adds more nodes",
+        "Vertical scaling adds more nodes, horizontal scaling increases capacity of a single node"
+      ],
+      "answer": "Vertical scaling increases the capacity of a single node, horizontal scaling adds more nodes"
+    },
+    {
+      "question": "[Set 3] Which of the following best describes the core concept of \"factorial\" in the context of \"Operating Systems\"?",
+      "options": [
+        "A methodology for synchronous data replication",
+        "An abstraction layer for resource management and coordination",
+        "A foundational protocol for system interaction",
+        "A localized resource optimization pattern"
+      ],
+      "answer": "An abstraction layer for resource management and coordination"
+    },
+    {
+      "question": "[Set 3] When analyzing key properties in \"Operating Systems\", what is the primary bottleneck typically encountered?",
+      "options": [
+        "Thread synchronization deadlock potential",
+        "CPU register allocation limits",
+        "I/O operations and memory mapping overhead",
+        "Network latency during socket initialization"
+      ],
+      "answer": "I/O operations and memory mapping overhead"
+    },
+    {
+      "question": "[Set 3] What is the main advantage of using structured modular design rather than a monolithic approach when working with \"factorial\"?",
+      "options": [
+        "Inherent security against buffer overflows",
+        "Automatic garbage collection efficiency",
+        "Improved maintenance, easier debugging, and decoupled testing",
+        "Reduced instruction set execution time"
+      ],
+      "answer": "Improved maintenance, easier debugging, and decoupled testing"
+    },
+    {
+      "question": "[Set 3] Which algorithmic complexity class is generally targetted for optimization in processes related to \"factorial\"?",
+      "options": [
+        "O(n log n) linearithmic time",
+        "O(n) linear time",
+        "O(log n) logarithmic time",
+        "O(1) constant time"
+      ],
+      "answer": "O(log n) logarithmic time"
+    },
+    {
+      "question": "[Set 3] How does scaling vertically differ from scaling horizontally when deploying systems of this type?",
+      "options": [
+        "There is no difference in resource distribution",
+        "Vertical scaling is always stateless, horizontal scaling is stateful",
+        "Vertical scaling increases the capacity of a single node, horizontal scaling adds more nodes",
+        "Vertical scaling adds more nodes, horizontal scaling increases capacity of a single node"
+      ],
+      "answer": "Vertical scaling increases the capacity of a single node, horizontal scaling adds more nodes"
+    }
+  ],
+  "auto_6": [
+    {
+      "question": "What inherent characteristic of SQL, stemming from its theoretical foundations in relational algebra and calculus, dictates that users specify *what* data they want rather than *how* to retrieve it?",
+      "options": [
+        "Its imperative nature, requiring step-by-step instructions.",
+        "Its object-oriented nature, focusing on data abstraction.",
+        "Its declarative nature, allowing the RDBMS to determine the optimal execution path.",
+        "Its procedural nature, necessitating explicit loops and conditional logic."
+      ],
+      "answer": "Its declarative nature, allowing the RDBMS to determine the optimal execution path."
+    },
+    {
+      "question": "A database table needs to guarantee that a specific column (e.g., `email_address`) contains only distinct values, and also that this column can temporarily be empty (NULL) for new user registrations. Which integrity constraint, if applied directly to this column, would satisfy the uniqueness requirement while allowing temporary nulls?",
+      "options": [
+        "`PRIMARY KEY`",
+        "`NOT NULL`",
+        "`UNIQUE`",
+        "`CHECK`"
+      ],
+      "answer": "`UNIQUE`"
+    },
+    {
+      "question": "Consider two tables, `Department` (parent, with `DeptNo` as PRIMARY KEY) and `Employee` (child, with `DeptNo` as FOREIGN KEY). If a `Department` record is deleted and the `FOREIGN KEY` constraint on `Employee.DeptNo` was created *without* `ON DELETE CASCADE`, what is the expected behavior when attempting to delete a `Department` record that still has associated employees?",
+      "options": [
+        "The `Department` record will be deleted, and all associated `Employee` records will have their `DeptNo` set to NULL.",
+        "The `Department` record will be deleted, and all associated `Employee` records will also be automatically deleted.",
+        "The `DELETE` operation on the `Department` record will fail.",
+        "The `Department` record will be deleted, but associated `Employee` records will remain, leading to orphaned foreign keys."
+      ],
+      "answer": "The `DELETE` operation on the `Department` record will fail."
+    },
+    {
+      "question": "A query needs to calculate the average salary for each department, but only for employees whose individual salary exceeds $30,000, and then only display departments where this calculated average salary is greater than $70,000. In which clause(s) would the conditions `$30,000` and `$70,000` respectively be placed?",
+      "options": [
+        "Both in `WHERE`.",
+        "Both in `HAVING`.",
+        "`$30,000` in `WHERE`, `$70,000` in `HAVING`.",
+        "`$30,000` in `HAVING`, `$70,000` in `WHERE`."
+      ],
+      "answer": "`$30,000` in `WHERE`, `$70,000` in `HAVING`."
+    },
+    {
+      "question": "Given a table `Products` with a column `Price` (NUMERIC, allows NULLs) and `ProductID` (INT, NOT NULL). If 5 products have prices $10, $20, $NULL, $40, $NULL. What would be the respective results of `COUNT(*)` and `AVG(Price)`?",
+      "options": [
+        "5 and 22.5",
+        "3 and 22.5",
+        "5 and 23.33",
+        "3 and 23.33"
+      ],
+      "answer": "5 and 23.33"
+    },
+    {
+      "question": "When performing a self-join in SQL (e.g., finding employees who earn more than some employee in 'IT' department from the same `employee` table), the `AS` keyword (or implicit aliasing) is critical. What fundamental database concept does renaming (aliasing) address in this context?",
+      "options": [
+        "It allows the use of aggregate functions on the same table.",
+        "It distinguishes between two *logical* roles of the *same physical table* within a single query.",
+        "It is a performance optimization to reduce table lookup times.",
+        "It enables the creation of temporary views for complex queries."
+      ],
+      "answer": "It distinguishes between two *logical* roles of the *same physical table* within a single query."
+    },
+    {
+      "question": "A PL/SQL developer is tasked with processing a large result set from a `SELECT` statement, where each retrieved row needs to undergo complex validation logic and potentially trigger another database operation before proceeding to the next row. Which type of cursor is most appropriate for this scenario, and why?",
+      "options": [
+        "An implicit cursor, because it is automatically managed by the DBMS and simpler to use.",
+        "An explicit cursor, because it provides fine-grained (row-by-row) control over the result set.",
+        "An implicit cursor, because it is optimized for large data processing.",
+        "An explicit cursor, because it uses less system memory than an implicit cursor."
+      ],
+      "answer": "An explicit cursor, because it provides fine-grained (row-by-row) control over the result set."
+    },
+    {
+      "question": "In the lifecycle of an explicit cursor, what is the *specific action* performed during the `OPEN` stage, beyond just making the cursor active?",
+      "options": [
+        "It reserves memory for the result set and defines the cursor's SELECT statement.",
+        "It retrieves the first row of the result set into variables.",
+        "It executes the associated `SELECT` query and populates the temporary work area with the result set.",
+        "It releases the memory allocated to the cursor."
+      ],
+      "answer": "It executes the associated `SELECT` query and populates the temporary work area with the result set."
+    },
+    {
+      "question": "An HR manager requests a report listing *all* departments, including those that currently have no employees. For departments that do have employees, the report should also show the average salary of those employees. Which type of JOIN is essential for the initial retrieval of department and employee data to ensure all departments are included?",
+      "options": [
+        "`INNER JOIN`",
+        "`RIGHT OUTER JOIN`",
+        "`LEFT OUTER JOIN`",
+        "`FULL OUTER JOIN`"
+      ],
+      "answer": "`LEFT OUTER JOIN`"
+    },
+    {
+      "question": "Consider the following two SQL query snippets used to join `Employee` and `Department` tables:\n1. `SELECT e.ename, d.dname FROM Employee e, Department d WHERE e.DeptNo = d.DeptNo;`\n2. `SELECT e.ename, d.dname FROM Employee e INNER JOIN Department d ON e.DeptNo = d.DeptNo;`\nWhat is a key difference in their operational outcome or potential pitfall?",
+      "options": [
+        "Query 1 is faster due to its implicit nature, while Query 2 is more explicit.",
+        "Query 1 returns more rows by including non-matching records, while Query 2 only returns matches.",
+        "Query 1 is prone to Cartesian products if the `WHERE` clause is omitted, while Query 2 explicitly defines the join condition.",
+        "Query 1 requires the `DeptNo` column to be indexed, whereas Query 2 does not."
+      ],
+      "answer": "Query 1 is prone to Cartesian products if the `WHERE` clause is omitted, while Query 2 explicitly defines the join condition."
+    },
+    {
+      "question": "A company policy states that an employee's salary cannot be updated to a value less than their current salary. To enforce this, a trigger is implemented. Which combination of trigger type and special variable (`OLD`/`NEW`) would be most appropriate to prevent such invalid salary updates *before* they are permanently recorded?",
+      "options": [
+        "`AFTER UPDATE` using `NEW.salary` and `OLD.salary`.",
+        "`BEFORE UPDATE` using `OLD.salary` and `NEW.salary`.",
+        "`AFTER INSERT` using `NEW.salary`.",
+        "`BEFORE DELETE` using `OLD.salary`."
+      ],
+      "answer": "`BEFORE UPDATE` using `OLD.salary` and `NEW.salary`."
+    },
+    {
+      "question": "The text states triggers \"automatically runs (fires) when a specific event ... occurs.\" What characteristic *primarily* distinguishes a trigger from a standard stored procedure or function in a DBMS?",
+      "options": [
+        "Triggers always return a value, unlike stored procedures.",
+        "Triggers are executed on client-side applications, while procedures are server-side.",
+        "Triggers are implicitly invoked by DML events on a table, whereas procedures are explicitly called.",
+        "Triggers can modify data from multiple tables in a single operation, which procedures cannot."
+      ],
+      "answer": "Triggers are implicitly invoked by DML events on a table, whereas procedures are explicitly called."
+    },
+    {
+      "question": "Relational calculus is described as a \"non-procedural query language that tells WHAT data to retrieve without specifying HOW.\" What is the main implication of this \"non-procedural\" characteristic for a database user or developer?",
+      "options": [
+        "It requires the user to write detailed algorithms for data retrieval.",
+        "It allows the DBMS to optimize the execution path independently, based on the user's data requirements.",
+        "It restricts the complexity of queries that can be formulated.",
+        "It necessitates knowing the physical storage structure of the data."
+      ],
+      "answer": "It allows the DBMS to optimize the execution path independently, based on the user's data requirements."
+    },
+    {
+      "question": "A table `Students` has a column `StudentID` which is defined as `VARCHAR(10) NOT NULL UNIQUE`. While this setup ensures uniqueness and non-nullability, what critical feature or purpose, typically associated with a `PRIMARY KEY`, is still missing or not explicitly guaranteed by this `UNIQUE` constraint alone, according to database design principles?",
+      "options": [
+        "Automatic indexing for faster lookups.",
+        "Enforcement of referential integrity (as a parent key).",
+        "The ability to store varying lengths of data.",
+        "Column-level constraint enforcement."
+      ],
+      "answer": "Enforcement of referential integrity (as a parent key)."
+    },
+    {
+      "question": "The `UNION` operator inherently removes duplicate rows from its combined result set, whereas `UNION ALL` explicitly retains them. From a set theory perspective in relational algebra, what does the default behavior of `UNION` imply about the nature of its output?",
+      "options": [
+        "That the result is always a bag (multiset) of tuples.",
+        "That the result is always a relation (a true set of distinct tuples).",
+        "That the order of tuples in the result is guaranteed.",
+        "That the performance will always be faster than `UNION ALL`."
+      ],
+      "answer": "That the result is always a relation (a true set of distinct tuples)."
     }
   ]
 }

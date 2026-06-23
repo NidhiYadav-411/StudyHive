@@ -34,6 +34,11 @@ async function initQuiz() {
             quizData = data[quizId];
             shuffleQuizzes(quizData);
             
+            // Limit to 5 questions if there is a larger pool of questions
+            if (quizData.length > 5) {
+                quizData = quizData.slice(0, 5);
+            }
+            
             quizTitleText = titles[quizId] || "AI Custom Quiz";
             if (quizId.startsWith('auto_')) {
                 quizTitleText = "AI Generated Quiz";
