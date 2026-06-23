@@ -1,10 +1,14 @@
+const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://localhost:5000/api'
+    : 'https://your-render-app.onrender.com/api'; // Replace with your Render URL
+
 window.addEventListener('DOMContentLoaded', () => {
     fetchAdminNotes();
 });
 
 async function fetchAdminNotes() {
     try {
-        const response = await fetch('http://localhost:5000/api/notes');
+        const response = await fetch(`${API_BASE}/notes`);
         const data = await response.json();
         
         const container = document.getElementById('dynamicNotesContainer');

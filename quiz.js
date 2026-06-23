@@ -1,3 +1,7 @@
+const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://localhost:5000/api'
+    : 'https://your-render-app.onrender.com/api'; // Replace with your Render URL
+
 let quizData = [];
 let currentQuestion = 0;
 let score = 0;
@@ -120,7 +124,7 @@ function nextQuestion() {
         const userStr = localStorage.getItem("loggedInUser");
         if (userStr) {
             const user = JSON.parse(userStr);
-            fetch('http://localhost:5000/api/submit_quiz', {
+            fetch(`${API_BASE}/submit_quiz`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
