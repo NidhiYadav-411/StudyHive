@@ -35,36 +35,64 @@
         </div>
 
         <div class="assignments-grid" id="assignmentList">
-            <a href="assignments/B.Tech.First year 23-24 (Assignment - I) (4).pdf" target="_blank" class="assignment-card block" data-title="Math 2 : Unit 1">
-                <div class="assignment-icon">📄</div>
-                <div class="assignment-title">Math 2 : Unit 1</div>
-            </a>
-            <a href="assignments/B.Tech.First year 23-24 (Assignment - III) (1).pdf" target="_blank" class="assignment-card block" data-title="Math 2 : Unit 3">
-                <div class="assignment-icon">📄</div>
-                <div class="assignment-title">Math 2 : Unit 3</div>
-            </a>
-            <a href="assignments/EE All Unit 2 mrks que. PUT & semester.pdf" target="_blank" class="assignment-card block" data-title="Electrical 2 Marks Questions">
-                <div class="assignment-icon">⚡</div>
-                <div class="assignment-title">Electrical 2 Marks Questions</div>
-            </a>
-            <a href="assignments/PPS IMPORTANT QUESTIONS 2024 even sem.docx" target="_blank" class="assignment-card block" data-title="PPS Question Bank 1">
-                <div class="assignment-icon">💻</div>
-                <div class="assignment-title">PPS Question Bank 1</div>
-            </a>
-            <a href="assignments/PPS IMPORTANT QUESTIONS and solution pinki.docx" target="_blank" class="assignment-card block" data-title="PPS Question Bank 2">
-                <div class="assignment-icon">💻</div>
-                <div class="assignment-title">PPS Question Bank 2</div>
-            </a>
-            <a href="assignments/PPS IMPORTANT QUESTIONS G2.docx" target="_blank" class="assignment-card block" data-title="PPS Question Bank 3">
-                <div class="assignment-icon">💻</div>
-                <div class="assignment-title">PPS Question Bank 3</div>
-            </a>
+            <!-- Loaded dynamically -->
         </div>
     </div>
 
+    <script src="index.js"></script>
     <script>
         const searchInput = document.getElementById('searchInput');
-        
+        const assignmentList = document.getElementById('assignmentList');
+
+        window.addEventListener('DOMContentLoaded', () => {
+            fetchAssignments();
+        });
+
+        async function fetchAssignments() {
+            try {
+                const response = await fetch(`${API_BASE}/assignments`);
+                const data = await response.json();
+                
+                assignmentList.innerHTML = '';
+                
+                if (data.assignments && data.assignments.length > 0) {
+                    data.assignments.forEach(assign => {
+                        const icon = getIcon(assign.title, assign.filename);
+                        const safePath = assign.filepath.replace(/\\/g, '/');
+                        const fileUrl = `${API_BASE.replace('/api', '')}/${safePath}`;
+
+                        const card = document.createElement('a');
+                        card.href = fileUrl;
+                        card.target = '_blank';
+                        card.className = 'assignment-card block';
+                        card.setAttribute('data-title', assign.title);
+                        card.innerHTML = `
+                            <div class="assignment-icon">${icon}</div>
+                            <div class="assignment-title">${assign.title}</div>
+                        `;
+                        assignmentList.appendChild(card);
+                    });
+                } else {
+                    assignmentList.innerHTML = '<div style="color: var(--text-muted); grid-column: 1/-1; text-align: center; padding: 20px;">No assignments uploaded yet.</div>';
+                }
+            } catch (e) {
+                console.error("Failed to load assignments:", e);
+                assignmentList.innerHTML = '<div style="color: #e74c3c; grid-column: 1/-1; text-align: center; padding: 20px;">Error loading assignments.</div>';
+            }
+        }
+
+        function getIcon(title, filename) {
+            const titleLower = title.toLowerCase();
+            const ext = filename ? filename.split('.').pop().toLowerCase() : '';
+            if (titleLower.includes('electrical') || titleLower.includes('physics')) {
+                return '⚡';
+            }
+            if (ext === 'doc' || ext === 'docx') {
+                return '💻';
+            }
+            return '📄';
+        }
+
         searchInput.addEventListener('input', function () {
             const filter = searchInput.value.toLowerCase();
             const blocks = document.querySelectorAll('.block');

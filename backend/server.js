@@ -107,6 +107,120 @@ async function initializeDatabase() {
             )
         `);
 
+        await pool.query(`
+            CREATE TABLE IF NOT EXISTS Tutorials (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                title VARCHAR(255) NOT NULL,
+                video_url VARCHAR(512) NOT NULL,
+                uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        `);
+
+        await pool.query(`
+            CREATE TABLE IF NOT EXISTS Queries (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                student_name VARCHAR(255) NOT NULL,
+                question TEXT NOT NULL,
+                ai_answer TEXT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        `);
+
+        await pool.query(`
+            CREATE TABLE IF NOT EXISTS Assignments (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                title VARCHAR(255) NOT NULL,
+                filename VARCHAR(255) NOT NULL,
+                filepath VARCHAR(512) NOT NULL,
+                uploaded_by INT NULL,
+                status VARCHAR(50) DEFAULT 'approved',
+                uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (uploaded_by) REFERENCES Users(id) ON DELETE SET NULL
+            )
+        `);
+
+        // Check if video_url column is missing (due to pre-existing table using 'url')
+        try {
+            const [columns] = await pool.query('SHOW COLUMNS FROM Tutorials LIKE "video_url"');
+            if (columns.length === 0) {
+                console.log('Adding video_url column to existing Tutorials table...');
+                await pool.query('ALTER TABLE Tutorials ADD COLUMN video_url VARCHAR(512) NULL');
+                // Attempt to migrate data if 'url' column exists
+                try {
+                    await pool.query('UPDATE Tutorials SET video_url = url WHERE video_url IS NULL AND url IS NOT NULL');
+                } catch (migErr) {
+                    // url column might not exist either, which is fine
+                }
+            }
+        } catch (colErr) {
+            console.error('Error migrating column video_url:', colErr.message);
+        }
+
+        // Check if uploaded_by and status columns are missing in Assignments table
+        try {
+            const [columns] = await pool.query('SHOW COLUMNS FROM Assignments LIKE "status"');
+            if (columns.length === 0) {
+                console.log('Migrating Assignments table schema: adding uploaded_by and status columns...');
+                await pool.query('ALTER TABLE Assignments ADD COLUMN uploaded_by INT NULL');
+                await pool.query('ALTER TABLE Assignments ADD COLUMN status VARCHAR(50) DEFAULT "approved"');
+                await pool.query('ALTER TABLE Assignments ADD CONSTRAINT fk_assignments_uploaded_by FOREIGN KEY (uploaded_by) REFERENCES Users(id) ON DELETE SET NULL');
+            }
+        } catch (colErr) {
+            console.error('Error migrating columns for Assignments:', colErr.message);
+        }
+
+        // Seed default tutorials if empty
+        const [tutorials] = await pool.query('SELECT * FROM Tutorials');
+        if (tutorials.length === 0) {
+            const defaultTutorials = [
+                ['Numerical One Shot Revision', 'https://www.youtube.com/embed/ajdRvxDWH4w?si=KifbPqu38c5r1HnP'],
+                ['Java Tutorial for Beginners', 'https://www.youtube.com/embed/UmnCZ7-9yDY?si=ifUrtXtKA4T-uX8X'],
+                ['PPS Unit-1 One Shot', 'https://www.youtube.com/embed/oaaEwxxnGuo?si=ILvbQ_-xr6etdLVI'],
+                ['Python Full Course for Beginners', 'https://www.youtube.com/embed/_uQrJ0TkZlc?si=juVWZTNNWyB6TA9-'],
+                ['C++ Programming Course', 'https://www.youtube.com/embed/8jLOx1hD3_o?si=rOiPX0GAO8Qb9ZPF'],
+                ['JavaScript Full Course', 'https://www.youtube.com/embed/lfmg-EJ8gm4?si=uWjU6uBYTP1Am57i']
+            ];
+            for (const [title, url] of defaultTutorials) {
+                await pool.query('INSERT INTO Tutorials (title, video_url) VALUES (?, ?)', [title, url]);
+            }
+            console.log('Seeded default tutorials into the database');
+        }
+
+        // Seed default assignments if empty
+        const [assignments] = await pool.query('SELECT * FROM Assignments');
+        if (assignments.length === 0) {
+            const defaultAssignments = [
+                { title: 'Math 2 : Unit 1', filename: 'B.Tech.First year 23-24 (Assignment - I) (4).pdf' },
+                { title: 'Math 2 : Unit 3', filename: 'B.Tech.First year 23-24 (Assignment - III) (1).pdf' },
+                { title: 'Electrical 2 Marks Questions', filename: 'EE All Unit 2 mrks que. PUT & semester.pdf' },
+                { title: 'PPS Question Bank 1', filename: 'PPS IMPORTANT QUESTIONS 2024 even sem.docx' },
+                { title: 'PPS Question Bank 2', filename: 'PPS IMPORTANT QUESTIONS and solution pinki.docx' },
+                { title: 'PPS Question Bank 3', filename: 'PPS IMPORTANT QUESTIONS G2.docx' }
+            ];
+
+            const frontendAssignmentsDir = path.join(__dirname, '..', 'frontend', 'assignments');
+            const uploadsDir = path.join(__dirname, 'uploads');
+
+            for (const item of defaultAssignments) {
+                const srcPath = path.join(frontendAssignmentsDir, item.filename);
+                const destPath = path.join(uploadsDir, item.filename);
+                if (fs.existsSync(srcPath)) {
+                    if (!fs.existsSync(destPath)) {
+                        fs.copyFileSync(srcPath, destPath);
+                        console.log(`Copied assignment ${item.filename} to uploads`);
+                    }
+                    const filepath = `assets/uploads/${item.filename}`;
+                    await pool.query(
+                        'INSERT INTO Assignments (title, filename, filepath) VALUES (?, ?, ?)',
+                        [item.title, item.filename, filepath]
+                    );
+                } else {
+                    console.warn(`Source assignment file not found: ${srcPath}`);
+                }
+            }
+            console.log('Seeded default assignments into the database');
+        }
+
         // 4. Ensure at least one admin exists
         const [admins] = await pool.query('SELECT * FROM Users WHERE role = ?', ['admin']);
         if (admins.length === 0) {
@@ -521,6 +635,305 @@ ${truncatedText}`;
     } catch (err) {
         console.error('Error generating quiz:', err);
         return res.status(500).json({ error: 'Failed to generate quiz' });
+    }
+});
+
+// Helper to extract YouTube video ID and format as embed URL
+function getYoutubeEmbedUrl(url) {
+    if (!url) return '';
+    if (url.includes('youtube.com/embed/')) return url;
+    
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = url.match(regExp);
+    
+    const videoId = (match && match[2].length === 11) ? match[2] : null;
+    
+    if (videoId) {
+        return `https://www.youtube.com/embed/${videoId}`;
+    }
+    if (url.trim().length === 11) {
+        return `https://www.youtube.com/embed/${url.trim()}`;
+    }
+    return url;
+}
+
+// --- Video Tutorials Routes ---
+app.get('/api/tutorials', async (req, res) => {
+    try {
+        const [rows] = await pool.query('SELECT * FROM Tutorials ORDER BY uploaded_at DESC');
+        return res.status(200).json({ tutorials: rows });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ error: 'Database error' });
+    }
+});
+
+app.post('/api/tutorials', async (req, res) => {
+    const { title, video_url } = req.body;
+    if (!title || !video_url) {
+        return res.status(400).json({ error: 'Missing title or video_url' });
+    }
+    try {
+        const embedUrl = getYoutubeEmbedUrl(video_url);
+        const [result] = await pool.query(
+            'INSERT INTO Tutorials (title, video_url) VALUES (?, ?)',
+            [title, embedUrl]
+        );
+        return res.status(201).json({ message: 'Tutorial added successfully', tutorial_id: result.insertId });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ error: 'Database error' });
+    }
+});
+
+app.delete('/api/tutorials/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        await pool.query('DELETE FROM Tutorials WHERE id = ?', [id]);
+        return res.status(200).json({ message: 'Tutorial deleted successfully' });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ error: 'Database error' });
+    }
+});
+
+// Helper to generate AI response with fallback models
+async function generateAIResponse(prompt) {
+    const modelsToTry = [
+        'gemini-1.5-flash',
+        'gemini-flash-latest',
+        'gemini-1.5-flash-latest',
+        'gemini-2.0-flash',
+        'gemini-2.5-flash',
+        'gemini-pro'
+    ];
+
+    if (!process.env.GEMINI_API_KEY) {
+        throw new Error('GEMINI_API_KEY is not set');
+    }
+
+    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+    let lastError = null;
+
+    for (const modelName of modelsToTry) {
+        try {
+            const model = genAI.getGenerativeModel({ model: modelName });
+            const result = await model.generateContent(prompt);
+            const responseText = result.response.text();
+            if (responseText) {
+                return responseText;
+            }
+        } catch (err) {
+            console.warn(`AI model ${modelName} failed:`, err.message || err);
+            lastError = err;
+        }
+    }
+
+    throw lastError || new Error('All models failed to generate content');
+}
+
+// --- Student AI Queries Routes ---
+app.get('/api/queries', async (req, res) => {
+    try {
+        const [rows] = await pool.query('SELECT * FROM Queries ORDER BY created_at DESC');
+        return res.status(200).json({ queries: rows });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ error: 'Database error' });
+    }
+});
+
+app.post('/api/query', async (req, res) => {
+    const { name, question } = req.body;
+    if (!name || !question) {
+        return res.status(400).json({ error: 'Missing name or question' });
+    }
+
+    try {
+        // 1. Fetch approved Notes and Tutorials as context
+        const [notes] = await pool.query("SELECT * FROM Notes WHERE status = 'approved'");
+        const [tutorials] = await pool.query("SELECT * FROM Tutorials");
+
+        // 2. Keyword matching to find relevant notes
+        const questionWords = question.toLowerCase()
+            .replace(/[^a-zA-Z0-9\s]/g, '')
+            .split(/\s+/)
+            .filter(w => w.length > 3);
+
+        let relevantNotes = [];
+        for (const note of notes) {
+            const subjectLower = note.subject.toLowerCase();
+            const topicLower = note.topic.toLowerCase();
+            
+            const isMatch = questionWords.some(word => 
+                subjectLower.includes(word) || topicLower.includes(word)
+            );
+            
+            if (isMatch) {
+                relevantNotes.push(note);
+            }
+        }
+
+        // Limit to top 2 notes
+        relevantNotes = relevantNotes.slice(0, 2);
+
+        // 3. Extract text from relevant notes
+        let pdfTextContext = '';
+        for (const note of relevantNotes) {
+            const filename = note.filename;
+            const fullPath = path.join(__dirname, 'uploads', filename);
+            if (fs.existsSync(fullPath)) {
+                console.log(`Extracting text from relevant PDF note: ${filename}...`);
+                const text = await extractTextFromPdf(fullPath);
+                if (text) {
+                    pdfTextContext += `--- CONTENT OF NOTE: "${note.subject} - ${note.topic}" ---\n${text.substring(0, 8000)}\n\n`;
+                }
+            }
+        }
+
+        // 4. Construct lists of available resources
+        const availableNotesList = notes.map(n => `- Subject: "${n.subject}", Topic: "${n.topic}", Filename: "${n.original_name}"`).join('\n');
+        const availableVideosList = tutorials.map(t => `- Title: "${t.title}", Embed URL: "${t.video_url}"`).join('\n');
+
+        // 5. Construct RAG prompt
+        const prompt = `
+You are "StudyHive AI", a helpful educational assistant for the StudyHive EdTech platform.
+A student named ${name} asked this question: "${question}"
+
+Answer their question comprehensively, using the following context from StudyHive's study materials:
+
+--- START CONTEXT ---
+${pdfTextContext || 'No directly matching PDF notes text found on disk.'}
+
+--- ADDITIONAL STUDY MATERIALS AVAILABLE ON STUDYHIVE ---
+(Suggest these notes/videos to the student as further learning resources if they relate to their query!)
+Available Notes:
+${availableNotesList || '- No notes available.'}
+
+Available Videos:
+${availableVideosList || '- No video tutorials available.'}
+--- END CONTEXT ---
+
+Instructions:
+1. Answer the student's question directly, clearly, and thoroughly.
+2. If matching PDF notes content was found in the context above, use it to personalize the answer.
+3. If the context does not have the full answer, use your general knowledge, but keep it relevant.
+4. At the end of your response under a "Recommended Study Resources" heading, list and recommend matching study notes or video tutorials from the "ADDITIONAL STUDY MATERIALS AVAILABLE ON STUDYHIVE" list above that relate to their question (provide the exact title/subject and say they can access them on the platform).
+`;
+
+        // 6. Generate AI Answer
+        let aiAnswer;
+        try {
+            aiAnswer = await generateAIResponse(prompt);
+        } catch (aiErr) {
+            console.error('AI Generation error, using offline response:', aiErr.message || aiErr);
+            aiAnswer = `Hi ${name}, I am currently experiencing connection issues with my AI core. However, we have resources on this topic. Please look at the Notes and Video Tutorials sections on StudyHive for materials related to "${question}".`;
+        }
+
+        // 7. Save to Queries database
+        const [result] = await pool.query(
+            'INSERT INTO Queries (student_name, question, ai_answer) VALUES (?, ?, ?)',
+            [name, question, aiAnswer]
+        );
+
+        return res.status(200).json({
+            id: result.insertId,
+            student_name: name,
+            question: question,
+            ai_answer: aiAnswer
+        });
+
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ error: 'Failed to process student query' });
+    }
+});
+
+// --- Dynamic Assignments Endpoints ---
+app.get('/api/assignments', async (req, res) => {
+    try {
+        const [rows] = await pool.query("SELECT * FROM Assignments WHERE status = 'approved' ORDER BY uploaded_at DESC");
+        return res.status(200).json({ assignments: rows });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ error: 'Database error' });
+    }
+});
+
+app.post('/api/assignments', upload.single('file'), async (req, res) => {
+    if (!req.file) {
+        return res.status(400).json({ error: 'No file provided' });
+    }
+    const { title, user_id } = req.body;
+    if (!title) {
+        return res.status(400).json({ error: 'Title is required' });
+    }
+    const status = user_id ? 'pending' : 'approved';
+    const filename = req.file.filename;
+    const filepath = `assets/uploads/${filename}`;
+    try {
+        const [result] = await pool.query(
+            'INSERT INTO Assignments (title, filename, filepath, uploaded_by, status) VALUES (?, ?, ?, ?, ?)',
+            [title, filename, filepath, user_id || null, status]
+        );
+        return res.status(201).json({ message: 'Assignment uploaded successfully', assignment_id: result.insertId });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ error: 'Database error' });
+    }
+});
+
+app.delete('/api/assignments/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        await pool.query('DELETE FROM Assignments WHERE id = ?', [id]);
+        return res.status(200).json({ message: 'Assignment deleted successfully' });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ error: 'Database error' });
+    }
+});
+
+app.get('/api/admin/pending-assignments', async (req, res) => {
+    try {
+        const [rows] = await pool.query(
+            "SELECT * FROM Assignments WHERE status = 'pending' ORDER BY uploaded_at DESC"
+        );
+        return res.status(200).json({ assignments: rows });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ error: 'Database error' });
+    }
+});
+
+app.post('/api/admin/moderate-assignment', async (req, res) => {
+    const { assignment_id, action } = req.body; // 'approve' or 'reject'
+    if (!assignment_id || !action) {
+        return res.status(400).json({ error: 'Missing assignment_id or action' });
+    }
+    
+    const conn = await pool.getConnection();
+    try {
+        await conn.beginTransaction();
+
+        if (action === 'approve') {
+            await conn.query("UPDATE Assignments SET status = 'approved' WHERE id = ?", [assignment_id]);
+            const [rows] = await conn.query("SELECT uploaded_by FROM Assignments WHERE id = ?", [assignment_id]);
+            if (rows.length > 0 && rows[0].uploaded_by) {
+                await conn.query("UPDATE Users SET points = points + 10 WHERE id = ?", [rows[0].uploaded_by]);
+            }
+        } else if (action === 'reject') {
+            await conn.query("UPDATE Assignments SET status = 'rejected' WHERE id = ?", [assignment_id]);
+        }
+
+        await conn.commit();
+        return res.status(200).json({ message: `Assignment ${action}d successfully` });
+    } catch (err) {
+        await conn.rollback();
+        console.error(err);
+        return res.status(500).json({ error: 'Database error' });
+    } finally {
+        conn.release();
     }
 });
 

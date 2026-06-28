@@ -106,7 +106,9 @@
         </a>
         <div class="nav-links">
             <a class="nav" href="index.html">Home</a>
+            <a class="nav" href="tutorials.html">Tutorials</a>
             <a class="nav" href="notes.html">Notes</a>
+            <a class="nav" href="assignments.html">Assignments</a>
             <button class="btn-primary" onclick="logout()">Sign Out</button>
         </div>
     </div>
@@ -130,8 +132,18 @@
             <div class="upload-section">
                 <h3 style="color: white; margin-bottom: 10px;">Contribute to StudyHive</h3>
                 <p style="color: var(--text-muted); margin-bottom: 15px;">Earn 10 points for every approved curriculum upload!</p>
-                <div style="display: flex; gap: 15px; justify-content: center; margin-bottom: 15px; flex-wrap: wrap;">
-                    <select id="subjectInput">
+                
+                <div style="margin-bottom: 15px;">
+                    <label style="color: var(--text-main); font-weight: 500; margin-right: 10px;">Contribution Type:</label>
+                    <select id="contributionType" onchange="toggleUploadTypeFields()" style="padding: 10px; border-radius: 8px; background: #1e293b; color: white; border: 1px solid var(--glass-border); font-size: 0.9rem;">
+                        <option value="note" selected>Study Notes</option>
+                        <option value="assignment">Assignment / Question Bank</option>
+                    </select>
+                </div>
+
+                <!-- Notes Fields -->
+                <div id="noteFields" style="display: flex; gap: 15px; justify-content: center; margin-bottom: 15px; flex-wrap: wrap;">
+                    <select id="subjectInput" style="padding: 10px; border-radius: 8px; background: #1e293b; color: white; border: 1px solid var(--glass-border); width: 100%; max-width: 400px; font-size: 0.9rem;">
                         <option value="" disabled selected>-- Select a Subject --</option>
                         <option value="Engineering Mathematics">Engineering Mathematics (Calculus, Linear Algebra, Diff Eq)</option>
                         <option value="Engineering Physics">Engineering Physics</option>
@@ -148,9 +160,15 @@
                         <option value="Fluid Mechanics">Fluid Mechanics</option>
                         <option value="Machine Design">Machine Design</option>
                     </select>
-                    <input type="text" id="topicInput" placeholder="Topic name (e.g. Thermodynamics, OOPs)...">
+                    <input type="text" id="topicInput" placeholder="Topic name (e.g. Thermodynamics, OOPs)..." style="padding: 10px; border-radius: 8px; background: rgba(255,255,255,0.05); color: var(--text-main); border: 1px solid var(--glass-border); width: 100%; max-width: 400px; font-size: 0.9rem;">
                 </div>
-                <input type="file" id="fileInput" name="file" accept=".pdf,.txt,.docx" />
+
+                <!-- Assignment Fields -->
+                <div id="assignmentFields" style="display: none; justify-content: center; margin-bottom: 15px;">
+                    <input type="text" id="assignmentTitleInput" placeholder="Assignment title (e.g. Math 2 Unit 1)..." style="padding: 10px; border-radius: 8px; background: rgba(255,255,255,0.05); color: var(--text-main); border: 1px solid var(--glass-border); width: 100%; max-width: 400px; font-size: 0.9rem;">
+                </div>
+
+                <input type="file" id="fileInput" name="file" accept=".pdf,.txt,.docx,.doc" />
                 <br><br>
                 <button class="btn-primary" onclick="uploadContribution()">Submit for Review</button>
                 <div id="uploadStatus" style="color: #2ecc71; margin-top: 10px;"></div>
@@ -211,30 +229,59 @@
             }
         }
 
+        function toggleUploadTypeFields() {
+            const type = document.getElementById('contributionType').value;
+            const noteFields = document.getElementById('noteFields');
+            const assignmentFields = document.getElementById('assignmentFields');
+            
+            if (type === 'note') {
+                noteFields.style.display = 'flex';
+                assignmentFields.style.display = 'none';
+            } else {
+                noteFields.style.display = 'none';
+                assignmentFields.style.display = 'flex';
+            }
+        }
+
         async function uploadContribution() {
+            const type = document.getElementById('contributionType').value;
             const fileInput = document.getElementById('fileInput');
-            const subjectInput = document.getElementById('subjectInput').value;
-            const topicInput = document.getElementById('topicInput').value;
             
             if (fileInput.files.length === 0) {
                 alert("Please select a file.");
                 return;
             }
-            if (!topicInput || !subjectInput) {
-                alert("Please configure subject and topic.");
-                return;
-            }
             
             const formData = new FormData();
             formData.append("file", fileInput.files[0]);
-            formData.append("subject", subjectInput);
-            formData.append("topic", topicInput);
             formData.append("user_id", currentUser.id); // Triggers pending queue
+
+            let endpoint = '';
+            
+            if (type === 'note') {
+                const subjectInput = document.getElementById('subjectInput').value;
+                const topicInput = document.getElementById('topicInput').value;
+                if (!topicInput || !subjectInput) {
+                    alert("Please configure subject and topic.");
+                    return;
+                }
+                formData.append("subject", subjectInput);
+                formData.append("topic", topicInput);
+                endpoint = `${API_BASE}/upload`;
+            } else {
+                const titleInput = document.getElementById('assignmentTitleInput').value.trim();
+                if (!titleInput) {
+                    alert("Please enter assignment title.");
+                    return;
+                }
+                formData.append("title", titleInput);
+                endpoint = `${API_BASE}/assignments`;
+            }
             
             document.getElementById('uploadStatus').innerText = "Submitting contribution...";
 
             try {
-                const response = await fetch(`${API_BASE}/upload`, {
+                const response = await fetch(endpoint, {
                     method: 'POST',
                     body: formData
                 });
@@ -243,7 +290,11 @@
                 if(response.ok) {
                     document.getElementById('uploadStatus').innerText = "Contribution submitted to Admin for review!";
                     fileInput.value = "";
-                    document.getElementById('topicInput').value = "";
+                    if (type === 'note') {
+                        document.getElementById('topicInput').value = "";
+                    } else {
+                        document.getElementById('assignmentTitleInput').value = "";
+                    }
                 } else {
                     document.getElementById('uploadStatus').innerText = "Error: " + data.error;
                 }

@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyHive - 100 Interview Q&As Hinglish Guide</title>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #1e293b;
+            --text-color: #e2e8f0;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --accent-green: #34d399;
+            --border-color: #334155;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        .category-section {
+            margin-bottom: 50px;
+        }
+
+        .category-title {
+            background-color: var(--accent);
+            color: var(--bg-color);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        .qna-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            page-break-inside: avoid;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .question {
+            color: var(--accent);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .answer {
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+
+        .section-block {
+            margin-bottom: 12px;
+        }
+
+        .section-block strong {
+            color: var(--accent-green);
+        }
+
+        code {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+            color: #f472b6;
+        }
+
+        pre {
+            background-color: #05070f;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border-color);
+        }
+
+        pre code {
+            color: #38bdf8;
+            background: none;
+            padding: 0;
+        }
+
+        /* Print styling optimized for exporting to PDF */
+        @media print {
+            body {
+                background-color: #fff;
+                color: #000;
+            }
+            .container {
+                max-width: 100%;
+                padding: 10px;
+            }
+            .qna-card {
+                background-color: #fff;
+                border: 1px solid #ccc;
+                color: #000;
+                box-shadow: none;
+                margin-bottom: 15px;
+                padding: 15px;
+                page-break-inside: avoid;
+            }
+            .question {
+                color: #0284c7;
+                border-bottom: 1px solid #ccc;
+            }
+            .section-block strong {
+                color: #16a34a;
+            }
+            .answer {
+                color: #111;
+            }
+            .category-title {
+                background-color: #0284c7;
+                color: #fff;
+                page-break-after: avoid;
+            }
+            code, pre {
+                background-color: #f4f4f5;
+                color: #000;
+                border: 1px solid #e4e4e7;
+            }
+            pre code {
+                color: #000;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>StudyHive Master Interview Guide (Hinglish Version)</h1>
+            <p>100 Questions, Detailed Explanations, Code Context, and Interview Tips in Hinglish</p>
+            <div style="margin-top: 15px; font-size: 0.9rem; color: var(--text-muted);">
+                Tip: Press <strong>Ctrl + P</strong> and select <strong>Save as PDF</strong> for a high-quality printable version.
+            </div>
+        </header>
+
+        <!-- CATEGORY 1 -->
+        <div class="category-section">
+            <div class="category-title">Category 1: Frontend & DOM Manipulation</div>
+
+            <!-- Q1 -->
+            <div class="qna-card">
+                <div class="question">Q1: What is the DOM, and how does the browser parse HTML?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> DOM (Document Object Model) HTML document ka ek tree-like structure representation hota hai. Browser HTML files ko parse karke tokens banata hai, tokens se nodes banata hai, aur fir pure DOM Tree ko ready karta hai. Usi time CSS ko parse karke CSSOM tree banta hai. Dono milkar Render Tree banate hain jo final display paint karta hai.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> Jab browser <code>notes.html</code> load karta hai, tab html ke main elements load ho jate hain, fir javascript chal kar dynamic note cards isme insert karti hai.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> DOM ko JS aur HTML ke beech ka path batayein. HTML parse single-threaded hota hai, isiliye large script tags top par browser loading ko block kar dete hain.</div>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="qna-card">
+                <div class="question">Q2: Explain the difference between DOMContentLoaded and window.onload.</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> <code>DOMContentLoaded</code> tab trigger hota hai jab HTML document parse ho jaye aur DOM tree build ho jaye (bina images aur css file ka wait kiye). <code>window.onload</code> tab trigger hota hai jab images, scripts, frames sab-kuch completely load ho chuke hon.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> Humne `notes.js` me <code>DOMContentLoaded</code> event listen kiya hai taaki page ready hote hi server se notes dynamic fetch hona start ho jaye.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Bataiye ki <code>DOMContentLoaded</code> use karne se page loading fast lagti hai (perceived speed increase hoti hai) kyunki hum resources pehle load kar dete hain.</div>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="qna-card">
+                <div class="question">Q3: How does StudyHive fetch and display notes dynamically? Explain the JavaScript workflow.</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Frontend <code>fetch()</code> call chala kar API request backend ko bhejta hai. Server JSON format me notes ka data bhejta hai. Frontend use parse karke iteration loop (<code>forEach</code>) chalata hai aur HTML template strings banakar innerHTML ke throw insert kar deta hai.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> `notes.js` me <code>fetch('${API_BASE}/notes')</code> call chalti hai, aur responses se dynamically cards structure map hokar <code>notes-grid</code> element me append hota hai.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Interviewer ko flow batayein: Request -> Route -> DB query -> JSON Response -> DOM rendering wrapper. Ye client-server communication ki deep understanding show karta hai.</div>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="qna-card">
+                <div class="question">Q4: Explain the difference between element.innerHTML and element.textContent. Which one is safer and why?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> <code>innerHTML</code> HTML tags ko execute karta hai aur strings ko DOM me badalta hai. Jabki <code>textContent</code> kisi bhi data ko simple text ki tarah set karta hai aur compile nahi karta.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> Agar koi user register name ya topic name me script tag inject karega, to <code>innerHTML</code> use chalayega (XSS vulnerability), jabki <code>textContent</code> simple escape safe string show karega.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Bataiye ki <code>textContent</code> performance me fast hai aur security me safe hai kyunki browser parses bypass ho jata hai.</div>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="qna-card">
+                <div class="question">Q5: What is event delegation, and why is it useful?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Har child element par alag listener lagane ke bajaye unke common Parent element par listener lagane ko Event Delegation kehte hain. Ye Event Bubbling ka use karke target elements check karta hai.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> Hazaar dynamic notes cards ke har buttons par click listener lagane se memory overload ho jayegi, isliye parent container grid par focus karna badhiya hai.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Samjhao ki dynamic nodes (jo bad me page par aate hain) ke liye delegation best hai, baar-baar listener re-bind karne ki zaroorat nahi padti.</div>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="qna-card">
+                <div class="question">Q6: How does the client-side search filtering work in the assignments page?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Input values ko lowercase me fetch karo, loop se list ke elements/cards ko select karo, title text ko checks karo using <code>includes()</code> method, match na hone par CSS layout hide (<code>display = 'none'</code>) kar do.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> `assignments.html` ke search box ke typing input event par loop chalta hai aur titles parameters ke basis par display status toggles hota hai.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Bataiye ki ye client-side in-memory search hai jo backend par bina loading dale instantly chalti hai, par bohot bade datasets ke liye server pagination search ideal hai.</div>
+                </div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="qna-card">
+                <div class="question">Q7: Explain localStorage vs sessionStorage. How does StudyHive maintain user state?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> <code>localStorage</code> tab tak save rehta hai jab tak delete na kiya jaye (permanent persistence). <code>sessionStorage</code> tab delete ho jata hai jab user browser tab band kar deta hai.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> Login par hum <code>localStorage.setItem("loggedInUser", JSON.stringify(data.user))</code> karte hain taaki browser restart hone par bhi user authentication active rahe.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Local storage strings accepts karta hai, isliye JavaScript objects ko save karte waqt <code>JSON.stringify()</code> aur fetch karte waqt <code>JSON.parse()</code> ka syntax use kiya jata hai.</div>
+                </div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="qna-card">
+                <div class="question">Q8: How can a user manipulate local storage via dev tools, and how do we prevent security exploits?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> DevTools -> Application tab me jaakar koi bhi value badal sakta hai ya delete kar sakta hai. Isse bachne ke liye sensitive information (jaise password or access logs) storage me save nahi karni chahiye.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> Front-end state validation simple layout checks ke liye use hota hai, par final check database status par backend APIs validate karti hain.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Interviewer ko batayein ki security check main API server side authentication key validation se strict hona chahiye.</div>
+                </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="qna-card">
+                <div class="question">Q9: What is Glassmorphism, and how did you implement it in StudyHive CSS?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Translucent frosted-glass aesthetic style design ko Glassmorphism kehte hain. Isme low opacity background aur backdrop filter blur effect use kiya jata hai.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> Dashboard blocks class CSS: <code>background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1);</code>.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Bataiye ki backdrop-filter property elements ke piche wale content par filters apply karti hai. Iske sath older browsers ke liye default fallback check color code dena better practice hai.</div>
+                </div>
+            </div>
+
+            <!-- Q10 -->
+            <div class="qna-card">
+                <div class="question">Q10: What are CSS Custom Properties (variables), and how do they benefit theme setups?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> CSS variables <code>--accent</code> syntax se define kiye jate hain aur use style sheet me <code>var(--accent)</code> se select kiya jata hai. Ek central style configuration maintain karne ke liye variables useful hain.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> global color system setup `global.css` me variable theme code define kiya hai.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Explain karein ki CSS variables runtime dynamic code hain, jinhe hum JavaScript se update karke pure page ka theme change (e.g. Dark/Light Mode) kar sakte hain.</div>
+                </div>
+            </div>
+
+            <!-- Q11 -->
+            <div class="qna-card">
+                <div class="question">Q11: Explain CSS Flexbox vs CSS Grid. When would you use which?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Flexbox one-dimensional grid hai (sirf row ya column layout). Grid two-dimensional hai (row aur column dono ko parallel scale control kar sakta hai).</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> Top navigation headers me dynamic alignment ke liye Flexbox aur multi-card blocks system ke liye Grid display use kiya hai.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Linear control ke liye Flexbox aur complex layout alignment blocks grid system ke liye CSS Grid recommend karein.</div>
+                </div>
+            </div>
+
+            <!-- Q12 -->
+            <div class="qna-card">
+                <div class="question">Q12: How do you achieve responsive design without UI frameworks like Bootstrap or Tailwind?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Multi-resolution setup handle karne ke liye Media Queries (<code>@media</code>), relative layout settings (<code>rem</code>, <code>%</code>), aur CSS Grid <code>minmax</code> properties use kiye jate hain.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> dynamic grid automatic auto-fill dynamically minmax layout handle karta hai mobile layouts adjust karne ke liye.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Frameworks bypass karne se extra unused CSS payload size reduce hoti hai jo site loading dynamic standard improve karta hai.</div>
+                </div>
+            </div>
+
+            <!-- Q13 -->
+            <div class="qna-card">
+                <div class="question">Q13: What is the benefit of using the input event over keyup/keydown for search filters?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> <code>input</code> event value update hote hi instantly trigger hota hai (chahe typing ho ya copy-paste). Keyup-Keydown events keyboard key click hone par strict check perform karte hain jo mouse inputs check miss kar deta hai.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> Search inputs handle karne me clean user search validation filters input click triggers par work karta hai.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> UI response check instant validation updates check implementation ke liye trigger events input focus select system optimal practice hai.</div>
+                </div>
+            </div>
+
+            <!-- Q14 -->
+            <div class="qna-card">
+                <div class="question">Q14: How does the front-end handle navigation active states?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> User kis path layout page file me hai, us anchor menu tag par active style attributes control add class layout select system update perform karta hai.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> relative html links me tag checks custom selector properties dynamic navigation menu focus select maintain karta hai.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Static routing updates validation setup aur SPA systems dynamic route switches indicators context clear samjhein.</div>
+                </div>
+            </div>
+
+            <!-- Q15 -->
+            <div class="qna-card">
+                <div class="question">Q15: Explain how data binding works in pure JavaScript.</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Database parameters aur layout objects data values update control state sync handling pure standard. Manual JavaScript execution se dynamic data dynamic select handle karna.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> User dashboards updates changes database profiles logic manual nodes variables bindings setup.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Vanilla updates checks memory optimizations check frameworks binding loops overhead scale dynamic direct update direct nodes fast control properties highlights standard.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORY 2 -->
+        <div class="category-section">
+            <div class="category-title">Category 2: Asynchronous JavaScript & APIs</div>
+
+            <!-- Q16 -->
+            <div class="qna-card">
+                <div class="question">Q16: What is a Promise in JavaScript? What are its different states?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Promise javascript ka asynchronous operation state value container check handler. Standard states: <code>Pending</code> (execution active), <code>Fulfilled</code> (success complete execution), <code>Rejected</code> (operation failed).</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> API routing execution fetch request return state structure pending states handles.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Promises state immutable properties state changes handles resolve values permanent maintain parameters structure concepts clear updates.</div>
+                </div>
+            </div>
+
+            <!-- Q17 -->
+            <div class="qna-card">
+                <div class="question">Q17: Explain the difference between callback-based asynchronous code and Promises.</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Callbacks nesting logic dependencies structure code complex design updates (Callback Hell). Promises chaining syntax (<code>.then().catch()</code>) structure code base linear readability clean values support handles.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> API response formats fetch data chains handling asynchronous flows clean standard format structure loops.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Code errors propagation benefits error catches centralized block promises superiority highlights.</div>
+                </div>
+            </div>
+
+            <!-- Q18 -->
+            <div class="qna-card">
+                <div class="question">Q18: Explain the async and await keywords. How do they work under the hood?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> <code>async</code> declares that function will always return promise syntax structure. <code>await</code> async function execution loops block parameters checks. Under the hood yields generators runtime state engines.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> DB queries execute handlers fetch logic handles sequences sequential clean codes formats layout.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Yield syntax state engines synchronous wrapper loops block mechanisms single thread concepts clarify.</div>
+                </div>
+            </div>
+
+            <!-- Q19 -->
+            <div class="qna-card">
+                <div class="question">Q19: What is the JavaScript Event Loop? Explain call stack, web APIs, callback queue, and microtask queue.</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Event loop single thread concurrency controller model. Stack executing active nodes processes handles. Offloads async jobs to Web APIs. Finished task callback updates macrotasks or microtask queues. Stack empty checks priority microtasks executes handles.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> HTTP queries offloads. Browser execution UI components render handles layout checks microtask loop queues executes callbacks.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Promise microtask priority callbacks queues order loop timer resolution concepts clarify.</div>
+                </div>
+            </div>
+
+            <!-- Q20 -->
+            <div class="qna-card">
+                <div class="question">Q20: How does fetch() work, and how do you handle HTTP errors using fetch?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> <code>fetch()</code> API network queries execute check returns response promise. Status check errors parameters ok flag check strictly.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> <code>if(!response.ok) throw new Error()</code> statements check errors parameters validation API routes handle loops.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Server status response (500 server crash) promise reject nahi hoga, reject tabhi hoga jab network crash status details explain loops logic.</div>
+                </div>
+            </div>
+
+            <!-- Q21 -->
+            <div class="qna-card">
+                <div class="question">Q21: What is a FormData object, and why is it used for file uploads in StudyHive?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> <code>FormData</code> browser logic encoding layout formats inputs multipart fields formats structure. PDF or DOCX file data stream values JSON direct transport support standard.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> dashboard post upload actions file inputs parameters user dashboard fetch loops logic.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> FormData automatically boundaries layout config handles header manually content-type write avoid standard highlights.</div>
+                </div>
+            </div>
+
+            <!-- Q22 -->
+            <div class="qna-card">
+                <div class="question">Q22: Explain the concept of Cross-Origin Resource Sharing (CORS).</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> CORS browser security checks model. Origin resource domains request block configuration values checks. Access headers backend enable config support loop standard.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> server port 5000 client ports requests block avoid express backend CORS library calls.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> CORS browser specific implementation tool servers queries (curl postman) direct query bypass logic explain concepts.</div>
+                </div>
+            </div>
+
+            <!-- Q23 -->
+            <div class="qna-card">
+                <div class="question">Q23: Why do we use template literals in ES6 JavaScript?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Template literals backtick structure interpolation format features multi-line layout string formatting.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> dynamic nodes creation updates card templates scripts files loops variables.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> String quotes escape constraints avoids code patterns clarity parameters maintain updates highlights.</div>
+                </div>
+            </div>
+
+            <!-- Q24 -->
+            <div class="qna-card">
+                <div class="question">Q24: What is JSON, and why is it the standard for API communication?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> JSON (JavaScript Object Notation) clean lightweight data formats strings parse simple support standard key-value layout representation formats.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> Backend responses database query lists payload details send JSON objects parse models.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> JSON text specific format binary files directly parse restrictions handles base64 forms logic support updates.</div>
+                </div>
+            </div>
+
+            <!-- Q25 -->
+            <div class="qna-card">
+                <div class="question">Q25: Explain the difference between synchronous and asynchronous operations in Node.js.</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Synchronous single thread block execution pauses till completions. Asynchronous executes task in worker pool or OS layer, calls trigger callbacks thread free runs next loops.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> Files parser methods SQL transactions async formats prevent node freeze parameters.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Node standard sync methods (readFileSync) production code avoid loops details event loop blocks prevention target.</div>
+                </div>
+            </div>
+
+            <!-- Q26 -->
+            <div class="qna-card">
+                <div class="question">Q26: What is window.location.hostname check in index.js and why is it useful?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Client side runtime dynamic routes environment switch handles. Localhost matches localhost API URL select switches.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> <code>API_BASE</code> config updates developer local and Render cloud deployment dynamic routes swap.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Environment variables client swaps standard systems variables config updates during compilers deployment logic.</div>
+                </div>
+            </div>
+
+            <!-- Q27 -->
+            <div class="qna-card">
+                <div class="question">Q27: How do you handle network failure gracefully in the frontend?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Network failures parameters fetch reject states code loops bypass blocks handled inside try-catch structure to show UI fallback text.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> API nodes requests fail catch fallback UI notes details error messages alert loops.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Graceful execution details user interface screens freeze block bypass details quality experiences standards.</div>
+                </div>
+            </div>
+
+            <!-- Q28 -->
+            <div class="qna-card">
+                <div class="question">Q28: Explain the difference between fetch and axios.</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Fetch standard browser API return stream requires JSON parses manual controls. Axios client library automatically JSON transforms, default error statuses captures, intercepts support.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> Vanilla lightweight client dependencies avoidance target using Native fetch APIs loops.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Native standard APIs usage project dependencies size optimization benefits explain systems.</div>
+                </div>
+            </div>
+
+            <!-- Q29 -->
+            <div class="qna-card">
+                <div class="question">Q29: What is rate limiting, and why would you implement it for APIs?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Specific client IP values API count requests limits set system. DDoS database overloads, budget billing keys safety checks.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> Gemini client prompt features query route database parameters protect checks.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Node system middlewares like `express-rate-limit` implementations standard integration logic.</div>
+                </div>
+            </div>
+
+            <!-- Q30 -->
+            <div class="qna-card">
+                <div class="question">Q30: How do you serialize and deserialize objects in JavaScript?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Serialization objects properties details strings text transform updates. Deserialization text conversion back to Active memory objects logic.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> login payload user profile details localstorage save parse checks.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Circular references errors handles targets parameters validations updates structure.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORY 3 -->
+        <div class="category-section">
+            <div class="category-title">Category 3: Node.js & Express Backend</div>
+
+            <!-- Q31 -->
+            <div class="qna-card">
+                <div class="question">Q31: What is Node.js? Why is it single-threaded and how does it handle concurrency?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> V8 engine based asynchronous engine. Single main execution thread loops handles. Concurrency offloads dynamic inputs IO workers thread pool (Libuv backend), loop callback stack handle loops.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> File uploads multiple database select queries execute non blocking parallel handles.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Single thread runtime features multi thread backend processing models difference scale logic explain.</div>
+                </div>
+            </div>
+
+            <!-- Q32 -->
+            <div class="qna-card">
+                <div class="question">Q32: What is Express.js, and what are its key features?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Node server lightweight framework. Routing modules controllers support parameters request response parsing middlewares pipeline configuration simplicity features.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> API routes routing maps endpoints inside <code>server.js</code> file.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Express is unopinionated, meaning folders custom layouts design developer free decisions systems logic.</div>
+                </div>
+            </div>
+
+            <!-- Q33 -->
+            <div class="qna-card">
+                <div class="question">Q33: What is Middleware in Express? Explain with examples from StudyHive.</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> request cycle execution pipeline logic function parameters. request details read parameters edit and pass using <code>next()</code> callbacks loops.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> payload check parser functions <code>express.json()</code> and file stream write engine <code>upload.single('file')</code>.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Middlewares request response terminate return responses directly without calling next methods security verification blocks examples.</div>
+                </div>
+            </div>
+
+            <!-- Q34 -->
+            <div class="qna-card">
+                <div class="question">Q34: What is the role of cors middleware in server.js?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Response headers inject rules browser validate origin requests permits logic backend sets.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> <code>app.use(cors())</code> in <code>server.js</code> allows frontend 3000 to fetch port 5000 backend routes.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Production code target standard options pass strict domain checks configure best practices target logic.</div>
+                </div>
+            </div>
+
+            <!-- Q35 -->
+            <div class="qna-card">
+                <div class="question">Q35: How does Multer handle file uploads, and how is it configured in StudyHive?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Multipart stream write handler. File stream buffer directory local write and populate details meta files details to <code>req.file</code> objects.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> uploads filename parameters clean non alphanumeric symbol strip injection validation prevent checks.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Directory traversal attacks prevent file name input sanitizers checks highlights updates security models.</div>
+                </div>
+            </div>
+
+            <!-- Q36 -->
+            <div class="qna-card">
+                <div class="question">Q36: Explain the structure of an Express route handler. What are req and res?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Methods path mapper asynchronous controllers parameter. <code>req</code> holds requests objects headers body queries, <code>res</code> handles actions response targets outputs codes.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> endpoint return logic: <code>res.status(200).json({ notes });</code>.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> response method trigger call must write otherwise client connection browser hangs loops indefinitely.</div>
+                </div>
+            </div>
+
+            <!-- Q37 -->
+            <div class="qna-card">
+                <div class="question">Q37: What is dotenv and why is it used to manage environment variables?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Configuration parameters settings separation model. Read properties variables from <code>.env</code> file.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> mysql connection passwords credentials keys process environments configuration sets.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Configuration settings codebase isolate parameters deployment cloud platforms best practice details.</div>
+                </div>
+            </div>
+
+            <!-- Q38 -->
+            <div class="qna-card">
+                <div class="question">Q38: Why should we never commit the .env file to version control?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Sensitive security credentials keys variables leak prevention model. Public shared git hosting files upload avoids.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> <code>.gitignore</code> configuration file setup prevent push to repositories.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Git commits history check bypass leaks handles secrets keys immediate replacement/rotation keys practice explain.</div>
+                </div>
+            </div>
+
+            <!-- Q39 -->
+            <div class="qna-card">
+                <div class="question">Q39: Explain how app.use(express.json()) works in Node.js.</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> payload streams parsers converts raw string incoming requests body text to JS object models parameters.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> auth post data emails credentials fetch inside req.body properties parameters checks.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> POST calls payload values undefined check checks parser middleware configurations validity highlights.</div>
+                </div>
+            </div>
+
+            <!-- Q40 -->
+            <div class="qna-card">
+                <div class="question">Q40: What is the purpose of express.static middleware, and how is it used in StudyHive?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Static assets direct server exposes checks. Files requests parameters directly retrieve check models.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> uploads PDF storage route paths <code>/assets/uploads</code> statically mapped folders.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Static route paths configuration speed optimization benefits checks loops sequence logic layouts.</div>
+                </div>
+            </div>
+
+            <!-- Q41 -->
+            <div class="qna-card">
+                <div class="question">Q41: Explain path resolution in Node.js using path.join and __dirname.</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> execution folder directory path indicator. joining segments platforms standard separator slash backslash compatibility resolver.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> uploads destination storage directory absolute paths resolves setup queries.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Hardcoded paths separator loops deployment crash targets (Windows local vs Linux server) compatibility targets details.</div>
+                </div>
+            </div>
+
+            <!-- Q42 -->
+            <div class="qna-card">
+                <div class="question">Q42: What is the difference between require() (CommonJS) and import (ES6 modules)?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> CommonJS synchronous loads properties at runtime. ES6 modules asynchronous parsed at compiler static layout. Tree-shaking optimizations benefits.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> `server.js` standard require calls module formats settings.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Node environment setup file extension configurations json package formats specifications.</div>
+                </div>
+            </div>
+
+            <!-- Q43 -->
+            <div class="qna-card">
+                <div class="question">Q43: How do you handle global errors in an Express application?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> End routes handlers error handler middlewares definitions. Four parameters arguments checks automatically catches logs returns status error templates.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> production codebase implementation plans error catches systems.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> preventing application crash runtime failures protection features handles stability focus.</div>
+                </div>
+            </div>
+
+            <!-- Q44 -->
+            <div class="qna-card">
+                <div class="question">Q44: What is package.json, and what is the difference between dependencies and devDependencies?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Node package profile definition scripts locks references. dependencies required production executions, devDependencies development tools.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> mysql connection libraries bcrypt lists inside project dependencies config values.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> devDependencies configuration reduces production deployment builds memory allocations targets.</div>
+                </div>
+            </div>
+
+            <!-- Q45 -->
+            <div class="qna-card">
+                <div class="question">Q45: What is package-lock.json, and why is it important?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Locks exact dependencies updates tree formats. Multi developer team environment package version sync checks.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> backend dependencies versions packages locks file.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Always commit lock files to git to prevent updates compatibility crashes.</div>
+                </div>
+            </div>
+
+            <!-- Q46 -->
+            <div class="qna-card">
+                <div class="question">Q46: How do you design clean, scalable RESTful API endpoints?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Noun paths resources models mapping standard verbs bypass. methods action mappings (GET read, POST create, DELETE remove).</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> <code>/api/assignments</code> paths POST DELETE operations loops maps standard.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> REST standard layouts API usage validation checks simplifies third party integrations.</div>
+                </div>
+            </div>
+
+            <!-- Q47 -->
+            <div class="qna-card">
+                <div class="question">Q47: What is Node.js cluster module, and how does it help in scaling applications?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Forking multiple processes workers threads from single parent sharing server ports CPU cores load distributions logic.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> high server concurrency traffic handle strategies setup.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> workers run independent processes, session memory data share requires external DB stores (like Redis).</div>
+                </div>
+            </div>
+
+            <!-- Q48 -->
+            <div class="qna-card">
+                <div class="question">Q48: What is PM2, and why is it used for running Node.js production servers?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Production system process manager. Background run keepalive, auto restart crash recovery cluster modes support features.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> backend running server process monitor tool.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> zero downtime reloads support code updates without active client service drops benefits explain.</div>
+                </div>
+            </div>
+
+            <!-- Q49 -->
+            <div class="qna-card">
+                <div class="question">Q49: How do you debug a memory leak in Node.js?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Objects references memory retention leaks check inspect flag heap comparison snapshots analyze standard processes.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> large PDF text parser modules execution checks leaks prevention.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Unbound event listeners, global variables references traps details memory leaks reasons.</div>
+                </div>
+            </div>
+
+            <!-- Q50 -->
+            <div class="qna-card">
+                <div class="question">Q50: Explain standard streaming vs buffering in Node.js file operations.</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Buffer loads complete file contents inside RAM memory before processes, streams read and process files in small incremental chunk sequences memory efficient.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> large note PDF parses memory management checks updates standard.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Buffer maximum length limits (~2GB) highlights stream necessity for large uploads.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORY 4 -->
+        <div class="category-section">
+            <div class="category-title">Category 4: Database & SQL (MySQL)</div>
+
+            <!-- Q51 -->
+            <div class="qna-card">
+                <div class="question">Q51: What is a Relational Database Management System (RDBMS)? Why choose MySQL?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Data rows columns tables formats structured references constraints design. MySQL reliability transactional support relational integrity features.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> Core profiles, note status uploads details relational tables linkages models.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Constraints checks query optimizations structures data consistency targets explain.</div>
+                </div>
+            </div>
+
+            <!-- Q52 -->
+            <div class="qna-card">
+                <div class="question">Q52: What is SQL Injection, and how does StudyHive prevent it?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Malicious input texts parsed executed database command bypass. Prevention using Prepared Parameterized queries queries templates.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> queries using question mark <code>?</code> formats separating query from parameters value check data inputs.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> never concatenate variables directly inside raw query template literals highlights SQL injections prevention awareness.</div>
+                </div>
+            </div>
+
+            <!-- Q53 -->
+            <div class="qna-card">
+                <div class="question">Q53: What is Connection Pooling, and why is it preferred over opening individual connections?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> db connections open close networking handshakes cost saving caches model. ready connections pool keeps reuse returns fast execution.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> connection pools initialized using backend pools setup.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> prevents connection limits overflow during traffic spikes performance scales checks.</div>
+                </div>
+            </div>
+
+            <!-- Q54 -->
+            <div class="qna-card">
+                <div class="question">Q54: Explain the difference between SQL JOIN operations (INNER, LEFT, RIGHT, FULL).</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Joins relates tables records. INNER match in both, LEFT matches left + match right (NULL if miss), RIGHT vice versa, FULL matches either side.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> note authors details matching loops fetch.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> LEFT join when parents retrieve target regardless of child entries matches.</div>
+                </div>
+            </div>
+
+            <!-- Q55 -->
+            <div class="qna-card">
+                <div class="question">Q55: What are foreign key constraints, and what does ON DELETE SET NULL or ON DELETE CASCADE mean?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Tables linkages constraints. ON DELETE CASCADE parent delete child also deletes automatically. SET NULL keeps child record clears link column value to NULL.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> Note model uploads link set to <code>ON DELETE SET NULL</code>, student profile deletes but note remains.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> retention configurations data dependency updates explain models differences.</div>
+                </div>
+            </div>
+
+            <!-- Q56 -->
+            <div class="qna-card">
+                <div class="question">Q56: What is a Database Transaction? Explain the ACID properties.</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Multi query updates unit execution block all or nothing logic. ACID features Atomicity (all/none), Consistency, Isolation, Durability.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> moderation approve update status note and user points increment safely.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> prevents database inconsistent state cases updates breaks logic.</div>
+                </div>
+            </div>
+
+            <!-- Q57 -->
+            <div class="qna-card">
+                <div class="question">Q57: How is a database transaction implemented in StudyHive's moderation routes?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> connections transactional wrappers queries execution control blocks.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> <code>await conn.beginTransaction(); ... await conn.commit(); catch rollback()</code> standard query execution controls.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> catch blocks rollback call importance fail conditions restoration database targets explain.</div>
+                </div>
+            </div>
+
+            <!-- Q58 -->
+            <div class="qna-card">
+                <div class="question">Q58: Explain database normalization (1NF, 2NF, 3NF). Why is it important?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Database anomalies redundancy cleanup logic normalization. 1NF atomic columns, 2NF primary key full dependency, 3NF no transitive dependencies between non key columns.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> normalized layout 3NF scores tables distinct profiles linked keys templates.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> normalization updates ease guarantees, denormalizations read improvements tradeoffs explain updates.</div>
+                </div>
+            </div>
+
+            <!-- Q59 -->
+            <div class="qna-card">
+                <div class="question">Q59: What is database indexing, and how does it improve query performance?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> B-Tree binary search index records mapper speed searches bypass full table scanning processes details.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> Primary keys unique index constraints dynamic speed.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> indexes speeds read queries writes/insert operations index reconstruct slow checks trade offs explain.</div>
+                </div>
+            </div>
+
+            <!-- Q60 -->
+            <div class="qna-card">
+                <div class="question">Q60: Explain the difference between SQL and NoSQL databases.</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> SQL relational structure rigid schema transactional, NoSQL document key-value schema-less scales horizontally target datasets loops.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> MySQL SQL relational schemas databases and JSON local mock files NoSQL layouts logic.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> transactional system consistency SQL profiles, unstructured massive logs stores NoSQL recommendations.</div>
+                </div>
+            </div>
+
+            <!-- Q61 -->
+            <div class="qna-card">
+                <div class="question">Q61: What is the purpose of CREATE TABLE IF NOT EXISTS queries in server.js?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Server reboot initialization safe check logic table exists SQL errors skip bypass blocks.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> startup runs schemas creations server startup script configurations.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> automated updates setups zero configurations startups capability demonstrates.</div>
+                </div>
+            </div>
+
+            <!-- Q62 -->
+            <div class="qna-card">
+                <div class="question">Q62: What is the difference between pool.query and pool.getConnection?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> pool query automatic connections management (checks out queries returns). connection getConnection dedicated locks connection till release manual calls.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> standard routes use pool queries, transactions moderation uses getConnection pools logic.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> connection release forgets leaks connection limits blocking future queries loop bugs danger.</div>
+                </div>
+            </div>
+
+            <!-- Q63 -->
+            <div class="qna-card">
+                <div class="question">Q63: How do you handle schema changes (migrations) dynamically at server startup in StudyHive?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> metadata database tables column structures check dynamic checks scripts start to run modifications ALTER dynamically.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> assignments checks column status update alter query run setups database initialize.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> dynamic migration scripts production setups standard version control tools recommendations (Knex Liquibase details).</div>
+                </div>
+            </div>
+
+            <!-- Q64 -->
+            <div class="qna-card">
+                <div class="question">Q64: What is the purpose of seeding databases, and how does StudyHive seed initial data?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> empty data table fresh installations default mock entries insertion setup processes database seeding.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> empty checks tables tutorials assignments seed default insertion models startup.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> test execution automation developer bootstrap environments setups importance highlight.</div>
+                </div>
+            </div>
+
+            <!-- Q65 -->
+            <div class="qna-card">
+                <div class="question">Q65: What is the difference between CHAR and VARCHAR in MySQL?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> CHAR fixes storage memory allocations spaces filler. VARCHAR dynamic size allocation length indicators storage optimization.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> titles email configs inputs using VARCHAR(255) allocations logic.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> fixed sizes MD5 hash, state codes tags CHAR speed benefits target explain formats.</div>
+                </div>
+            </div>
+
+            <!-- Q66 -->
+            <div class="qna-card">
+                <div class="question">Q66: Explain SQL aggregations (COUNT, SUM, AVG, GROUP BY).</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> calculations rows summaries data formats. SUM adding averages data GROUP BY groups matching classifications.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> averages score computations student dashboards data analytics.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> HAVING validation checks aggregates execute parameters post grouped states filter concepts details.</div>
+                </div>
+            </div>
+
+            <!-- Q67 -->
+            <div class="qna-card">
+                <div class="question">Q67: What is the difference between DELETE and TRUNCATE in SQL?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> DELETE DML query checks WHERE filter conditions line logs slow can rollback. TRUNCATE DDL query deallocates table spaces fast clears all resets indexes logs.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> specific assignments nodes drop routes uses DELETE queries.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> TRUNCATE clears metadata index start points, DELETE retains indexes current count details.</div>
+                </div>
+            </div>
+
+            <!-- Q68 -->
+            <div class="qna-card">
+                <div class="question">Q68: How do database constraints like UNIQUE protect data integrity?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> constraints rules db validation blocks duplicate inputs insert restrict database engines level integrity safety.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> user email registration unique constraints protect duplicates.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> database constraints secondary security backup layer blocks direct backend bypass values insert.</div>
+                </div>
+            </div>
+
+            <!-- Q69 -->
+            <div class="qna-card">
+                <div class="question">Q69: Explain the N+1 query problem and how to optimize it in SQL.</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> loop fetches details records separate queries looping N child tables. DB overload checks optimization using JOIN queries.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> single select note author details join statements query standard.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> single queries execution optimization loops database checks benefits explain highlights.</div>
+                </div>
+            </div>
+
+            <!-- Q70 -->
+            <div class="qna-card">
+                <div class="question">Q70: What is database sharding and replication?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Replication clones data duplicate nodes backups reads distribution master slave architecture, sharding partitions large tables data chunks multi nodes keys mapping.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> high database scalability solutions setup strategies.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> reads heavy scale replication benefits, write heavy shards partitions scales concept differences.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORY 5 -->
+        <div class="category-section">
+            <div class="category-title">Category 5: Security & Cryptography</div>
+
+            <!-- Q71 -->
+            <div class="qna-card">
+                <div class="question">Q71: What is cryptography, and what is the difference between encryption and hashing?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Encryption two way keys mapping decode reversible. Hashing one way mathematical transformations mapping irreversibly to fixed text strings.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> user credential registration hashing standard check bcrypt hashes compare login routes.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> security data in transit (HTTPS) encryption, credential storage hashes standard design usage.</div>
+                </div>
+            </div>
+
+            <!-- Q72 -->
+            <div class="qna-card">
+                <div class="question">Q72: Why should passwords never be decrypted? Explain one-way hashing.</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> password decryption access logs compromises risks database breaches leaks. hashes mapping storage safe matching verification compares.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> passwords hashes verify: <code>bcrypt.compare(input, hash)</code>.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> lost password recovery requires reset template links creation bypass search leaks.</div>
+                </div>
+            </div>
+
+            <!-- Q73 -->
+            <div class="qna-card">
+                <div class="question">Q73: What is salt in hashing, and why is it used in Bcrypt?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> salt values random texts insertions before hashes. Rainbow table attacks pre-computed maps lookup bypass logic identical passwords generates unique hashes.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> <code>bcrypt.hash(pass, cost)</code> auto salt generate embeds inside hashes.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> cost parameters (like 10) compute cycles delay brute force attempts slowdown checks design features.</div>
+                </div>
+            </div>
+
+            <!-- Q74 -->
+            <div class="qna-card">
+                <div class="question">Q74: Explain the authentication flow in StudyHive.</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> inputs submit frontend, API checks email user database verification compare hashes matches returns profile object payload stores localstorage.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> login verification forms JavaScript validations dynamic routes server checks.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> walk standard: input validation -> POST route -> database verify -> password comparison checks -> session state updates.</div>
+                </div>
+            </div>
+
+            <!-- Q75 -->
+            <div class="qna-card">
+                <div class="question">Q75: What is Role-Based Access Control (RBAC)? How is it implemented in StudyHive?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> access limits permissions roles mapping checks. database role fields validation route checks.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> User role properties validation blocks dashboard pages validation checks.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> backend routes restrictions verify main API security frontend client updates bypass targets warning.</div>
+                </div>
+            </div>
+
+            <!-- Q76 -->
+            <div class="qna-card">
+                <div class="question">Q76: Explain the difference between Session-based authentication and Token-based authentication (JWT).</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Session stateful database session ID match checks. JWT stateless signed cryptographic keys mapping validation no db queries required.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> client localstorage storage validation logs setup logic.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> token structures (payload sign header) authentication stateless scalability explain.</div>
+                </div>
+            </div>
+
+            <!-- Q77 -->
+            <div class="qna-card">
+                <div class="question">Q77: What is Session Hijacking, and how do you protect against it?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Stealing tokens or IDs targets duplicate impersonations. HTTPOnly cookies setups SSL secure HTTPS communication flags configurations.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> cookies localstorage replace security upgrades proposals.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> HTTPOnly cookies JS script access blocks completely protection XSS leaks explain.</div>
+                </div>
+            </div>
+
+            <!-- Q78 -->
+            <div class="qna-card">
+                <div class="question">Q78: Explain Cross-Site Scripting (XSS). How can a frontend application prevent it?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> malicious script inputs inject client browser executions details. input sanitization values escape innerHTML avoidance textContent usage targets.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> notes display tables innerHTML replace textContent safe string templates.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Content Security Policy (CSP) custom headers deployment benefits blocks scripts origins.</div>
+                </div>
+            </div>
+
+            <!-- Q79 -->
+            <div class="qna-card">
+                <div class="question">Q79: What is CSRF (Cross-Site Request Forgery), and how do you prevent it?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> authentic browser cookies auto transport vulnerability target fake forms executions. Anti CSRF validation tokens, SameSite Strict cookies parameters.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> no cookie based login auth headers manual tokens prevent CSRF risks.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> cookie auto sending logic exploits bypass tokens header checks safety concepts details.</div>
+                </div>
+            </div>
+
+            <!-- Q80 -->
+            <div class="qna-card">
+                <div class="question">Q80: What is HTTPS, and how does SSL/TLS protect web traffic?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> HTTP over TLS SSL cryptographically secure channel communication packets intercept read protection key.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> production Render links deploy auto HTTP redirect HTTPS loops configs.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> encryption authentication server validation handshake details Man in Middle mitigation highlights.</div>
+                </div>
+            </div>
+
+            <!-- Q81 -->
+            <div class="qna-card">
+                <div class="question">Q81: What is the difference between authorization and authentication?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Authentication checks identity profiles parameters, Authorization checks permission rights resources mapping updates logic.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> profile credentials check authentication, role validation checks access rights authorization checks.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Authentication executes always before authorization logic runs.</div>
+                </div>
+            </div>
+
+            <!-- Q82 -->
+            <div class="qna-card">
+                <div class="question">Q82: How do you secure REST APIs against brute-force attacks?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> rate limiters, temporary logs lock, CAPTCHAs integrations blocks repeated dictionary passwords try hacks.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> backend integration rate limit middlewares proposals scale.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> password computation delay algorithms (Bcrypt cost) brute force impact mitigates explains.</div>
+                </div>
+            </div>
+
+            <!-- Q83 -->
+            <div class="qna-card">
+                <div class="question">Q83: What is input validation, and why is it critical for security?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> format values schema check inputs parameters validations filters backend prevent database SQL execution break errors bugs.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> registration parameters null check backend constraints validation.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> frontend UI experience validates, backend secure security integrity validates both sides.</div>
+                </div>
+            </div>
+
+            <!-- Q84 -->
+            <div class="qna-card">
+                <div class="question">Q84: How do clean file names prevent directory traversal attacks?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> directory path indicators (<code>../</code>) name sanitizer remove updates to prevent file write outside destination folder structure.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> uploads filenames sanitizers replace regex formatting server files destination.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> dynamic uploads security filters directories write protections highlight checks.</div>
+                </div>
+            </div>
+
+            <!-- Q85 -->
+            <div class="qna-card">
+                <div class="question">Q85: What are security headers like Helmet in Express?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Express middleware sets headers parameters XSS Frame vulnerabilities protection.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> production node deployments scale protection integrations.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Clickjacking MIME sniff attacks mitigation headers configuration details.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORY 6 -->
+        <div class="category-section">
+            <div class="category-title">Category 6: AI, Gemini & PDF Extraction</div>
+
+            <!-- Q86 -->
+            <div class="qna-card">
+                <div class="question">Q86: What is a Large Language Model (LLM)? How does Google Gemini work?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> massive text corpus transformer models sequence next word predict patterns logic. Gemini multimodal formats capabilities text code image parse engine.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> prompt questions inputs generation chatbot query replies engine.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> multi modal parse capability models details transformer attention mechanisms focus.</div>
+                </div>
+            </div>
+
+            <!-- Q87 -->
+            <div class="qna-card">
+                <div class="question">Q87: Explain prompt engineering. What techniques are used in StudyHive for generating quiz questions?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> instructions string designs system behaviors targets formats output controls models constraints.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> quiz prompt definitions json strictly formatting structure arrays loops formats details.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> JSON schema models output parameters strict enforcement models instructions formats details.</div>
+                </div>
+            </div>
+
+            <!-- Q88 -->
+            <div class="qna-card">
+                <div class="question">Q88: How does the AI chatbot in StudyHive utilize context to answer student queries?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> query related context parameters db fetch and prompt append systems prompts LLM prioritizes context reference.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> dynamic database queries checks notes PDF text extraction append prompts logic.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Grounding prompt parameters context injection hallucinations reductions optimal solution.</div>
+                </div>
+            </div>
+
+            <!-- Q89 -->
+            <div class="qna-card">
+                <div class="question">Q89: What is Retrieval-Augmented Generation (RAG)? How is it simplified in StudyHive?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> External DB values extraction prompt integration before generate response. avoiding model fine tuning models datasets updates.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> search keyword match database pdf read extract appends prompts.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> live localized datasets context query answers updates accuracy details.</div>
+                </div>
+            </div>
+
+            <!-- Q90 -->
+            <div class="qna-card">
+                <div class="question">Q90: How does pdf-parse extract text from PDF documents? Explain the process.</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> reads PDF binary structure data streams extracts characters metadata page by page blocks returns combined raw string.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> quiz generation notes PDF texts extraction module updates.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> pdf parse reads structured metadata image scanned PDF files requires OCR systems checks.</div>
+                </div>
+            </div>
+
+            <!-- Q91 -->
+            <div class="qna-card">
+                <div class="question">Q91: What is the difference between structured text extraction and OCR?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Structured parses character structures directly fast accuracy high, OCR analyzes pixel patterns slow heavy resources targets.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> <code>pdf-parse</code> structured text extraction assumes text layout PDFs.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> performance speed comparisons structure extraction superiority explain loops.</div>
+                </div>
+            </div>
+
+            <!-- Q92 -->
+            <div class="qna-card">
+                <div class="question">Q92: What are tokens in LLMs, and how does token length limit affect prompts?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> LLMs process data in tokens (~4 characters units). Context window defines limit prompt + response maximum size.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> large notes inputs prompt check constraints avoid limits exceeds crashes.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> tokenizer calculations vocabulary rules details limits overflow handle details.</div>
+                </div>
+            </div>
+
+            <!-- Q93 -->
+            <div class="qna-card">
+                <div class="question">Q93: Explain the role of fallback systems in AI integration (e.g. offline fallback response).</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> API networks crash rate limit issues recovery system try catch fallback default return messaging keepAlive services checks.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> Gemini client prompt failures try catch fallback loops response configurations.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> server survival reliability standard setups handles customer experiences protection details.</div>
+                </div>
+            </div>
+
+            <!-- Q94 -->
+            <div class="qna-card">
+                <div class="question">Q94: How do you format LLM outputs as JSON programmatically?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> strict format instructions target outputs JSON string parse handles logic.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> query response JSON check parse loops.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> schemas parameters formats constraints API validation locks guarantees standard.</div>
+                </div>
+            </div>
+
+            <!-- Q95 -->
+            <div class="qna-card">
+                <div class="question">Q95: What is temperature parameter in LLMs?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> randomness control outputs parameter. Near 0 predictable structured logic target, Near 1 creative variable outputs loops.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> quiz question generations uses low temperature formatting compliance logic.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> deterministic data extractions low temperature, creative generation high temperature choices explain.</div>
+                </div>
+            </div>
+
+            <!-- Q96 -->
+            <div class="qna-card">
+                <div class="question">Q96: How does StudyHive parse raw AI output to populate the quiz structure dynamically?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> model response parse targets conversion to object properties loops writes JSON mock database.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> quiz arrays checks data dumps inside <code>quizzes.json</code> config.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> markdown block cleanups (strip backticks) formatting validation checks before JSON parses checks.</div>
+                </div>
+            </div>
+
+            <!-- Q97 -->
+            <div class="qna-card">
+                <div class="question">Q97: What are some limitations of LLMs (e.g., hallucinations), and how do we mitigate them?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Hallucinations generate incorrect fact assertions. Mitigation using RAG references context and low temperature limit configs.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> prompt instruction grounding restrict answer to notes context.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> system prompts strict constraints checks reduction techniques detail.</div>
+                </div>
+            </div>
+
+            <!-- Q98 -->
+            <div class="qna-card">
+                <div class="question">Q98: How do API keys work, and why should they be kept confidential?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> API keys credentials server billing mappings validation keys. Exposure risks billing overflow theft access checks.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> backend env files storage hidden from frontend calls.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> never push keys client side calls proxy requests via servers standard practices.</div>
+                </div>
+            </div>
+
+            <!-- Q99 -->
+            <div class="qna-card">
+                <div class="question">Q99: Explain how semantic search differs from keyword matching.</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> Keyword spelling matching exact. Semantic vector mapping conceptual closeness checks synonyms relationship matches.</div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> current search keyword standard to scale to vector distance check embeddings integrations.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> Vector coordinates mapping space distances cosine similarity concepts explain details.</div>
+                </div>
+            </div>
+
+            <!-- Q100 -->
+            <div class="qna-card">
+                <div class="question">Q100: How would you scale the AI features in StudyHive to support thousands of active users?</div>
+                <div class="answer">
+                    <div class="section-block"><strong>Concept:</strong> scaling bottlenecks: API cost delay concurrency. Solutions:
+                    <ul>
+                        <li>Redis caching answers duplicates check bypass.</li>
+                        <li>BullMQ background queues process dynamic loops main thread free keep.</li>
+                        <li>PDF once parse DB tables text checks disk reads loops bypass.</li>
+                    </ul></div>
+                    <div class="section-block"><strong>StudyHive Context:</strong> architectural improvements targets database scaling design models.</div>
+                    <div class="section-block"><strong>Interview Pro-Tip:</strong> asynchronous queuing memory optimizations caches designs explain system designer expertise.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

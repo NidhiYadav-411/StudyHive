@@ -1,6 +1,7 @@
-const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+var API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
     ? 'http://localhost:5000/api'
     : 'https://studyhive-backend-1soc.onrender.com/api'; // Replace with your Render URL
+
 
 let quizData = [];
 let currentQuestion = 0;

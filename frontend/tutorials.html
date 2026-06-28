@@ -34,53 +34,49 @@
     </div>
 
     <div class="videos-grid" id="videoContainer">
-        
-        <div class="video-card block" data-title="Numerical One Shot Revision | All Five Units">
-            <div class="video-title">Numerical One Shot Revision</div>
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/ajdRvxDWH4w?si=KifbPqu38c5r1HnP" allowfullscreen></iframe>
-            </div>
-        </div>
-        
-        <div class="video-card block" data-title="Java Tutorial for Beginners">
-            <div class="video-title">Java Tutorial for Beginners</div>
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/UmnCZ7-9yDY?si=ifUrtXtKA4T-uX8X" allowfullscreen></iframe>
-            </div>
-        </div>
-        
-        <div class="video-card block" data-title="PPS Unit-1 One Shot">
-            <div class="video-title">PPS Unit-1 One Shot</div>
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/oaaEwxxnGuo?si=ILvbQ_-xr6etdLVI" allowfullscreen></iframe>
-            </div>
-        </div>
-        
-        <div class="video-card block" data-title="Python Full Course for Beginners">
-            <div class="video-title">Python Full Course for Beginners</div>
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/_uQrJ0TkZlc?si=juVWZTNNWyB6TA9-" allowfullscreen></iframe>
-            </div>
-        </div>
-        
-        <div class="video-card block" data-title="C++ Programming Course - Beginner to Advanced">
-            <div class="video-title">C++ Programming Course</div>
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/8jLOx1hD3_o?si=rOiPX0GAO8Qb9ZPF" allowfullscreen></iframe>
-            </div>
-        </div>
-        
-        <div class="video-card block" data-title="JavaScript Full Course">
-            <div class="video-title">JavaScript Full Course</div>
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/lfmg-EJ8gm4?si=uWjU6uBYTP1Am57i" allowfullscreen></iframe>
-            </div>
-        </div>
-
+        <!-- Loaded dynamically from database -->
     </div>
   </div>
 
+  <script src="index.js"></script>
   <script>
+      window.addEventListener('DOMContentLoaded', () => {
+          fetchTutorials();
+      });
+
+      async function fetchTutorials() {
+          try {
+              const response = await fetch(`${API_BASE}/tutorials`);
+              const data = await response.json();
+              const container = document.getElementById('videoContainer');
+              if(!container) return;
+              container.innerHTML = '';
+
+              if (data.tutorials && data.tutorials.length > 0) {
+                  data.tutorials.forEach(t => {
+                      const card = document.createElement('div');
+                      card.className = 'video-card block';
+                      card.setAttribute('data-title', t.title);
+                      card.innerHTML = `
+                          <div class="video-title">${t.title}</div>
+                          <div class="video-wrapper">
+                              <iframe src="${t.video_url}" allowfullscreen></iframe>
+                          </div>
+                      `;
+                      container.appendChild(card);
+                  });
+              } else {
+                  container.innerHTML = `<div style="text-align: center; color: var(--text-muted); grid-column: 1/-1; padding: 40px; font-size: 1.2rem;">No video tutorials uploaded yet.</div>`;
+              }
+          } catch(e) {
+              console.error("Failed to load tutorials", e);
+              const container = document.getElementById('videoContainer');
+              if (container) {
+                  container.innerHTML = `<div style="text-align: center; color: #e74c3c; grid-column: 1/-1; padding: 40px; font-size: 1.2rem;">Failed to load tutorials from server.</div>`;
+              }
+          }
+      }
+
       function filterVideos() {
           const input = document.getElementById('searchInput').value.toLowerCase();
           const blocks = document.querySelectorAll('.block');
