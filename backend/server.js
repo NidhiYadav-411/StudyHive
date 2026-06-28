@@ -46,15 +46,18 @@ async function initializeDatabase() {
     try {
         console.log(`Connecting to MySQL on ${dbHost}:${dbPort} as user "${dbUser}"...`);
         // 1. Connect without database name first to create the database if not exists
-        const connection = await mysql.createConnection({
-            host: dbHost,
-            port: dbPort,
-            user: dbUser,
-            password: dbPassword
-        });
-
-        await connection.query(`CREATE DATABASE IF NOT EXISTS \`${dbName}\``);
-        await connection.end();
+        try {
+            const connection = await mysql.createConnection({
+                host: dbHost,
+                port: dbPort,
+                user: dbUser,
+                password: dbPassword
+            });
+            await connection.query(`CREATE DATABASE IF NOT EXISTS \`${dbName}\``);
+            await connection.end();
+        } catch (dbCreateErr) {
+            console.warn('Skipping CREATE DATABASE query (could be a permission restriction on Cloud DB host):', dbCreateErr.message);
+        }
 
         // 2. Create the connection pool with the database specified
         pool = mysql.createPool({
